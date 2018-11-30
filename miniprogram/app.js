@@ -1,31 +1,23 @@
 'use strict'
 const { wx_login } = require('./common/login')
 const url = require('./common/utils')
+wx.cloud.init();
 App({
 
   /**
    * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
    */
   onLaunch: function () {
-    wx.checkSession({
-      fail () {
-        
-      }
-    })
-    wx.login({
-      success (res) {
-        if (res.code) {
-          wx.request({
-            url: url.code_url,
-            data: {
-              code: res.code
-            }
-          })
-        }
+    wx.cloud.callFunction({
+      // 需调用的云函数名
+      name: 'login',
+      // 传给云函数的参数
+      data: {
+        a: 12,
+        b: 19,
       },
-      fail () {
-
-      }
+      // 成功回调
+      complete: console.log
     })
   },
 
