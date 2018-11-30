@@ -1,0 +1,18 @@
+.page_wrap{background-color:#fff;position:relative;}
+
+.login_head{border-bottom:1px solid #e6e6e6;margin:60px 20px 10px;padding-bottom:24px;}
+.login_avatar{border-radius:50%;display:block;height:80px;margin:0 auto 10px;overflow:hidden;width:80px;}
+.login_avatar_img{display:block;width:100%;}
+.login_nickname{color:#000;display:table;font-size:20px;min-height:32px;margin:0 auto;}
+
+.login_main{margin:0 20px;}
+.login_title{color:#000;display:block;font-size:16px;font-weight:bold;margin:10px 0 14px;}
+.login_item{color:#4a4a4a;display:block;font-size:15px;margin:6px 0;padding:0 0 0 15px;position:relative;}
+.login_item:before{background-color:#4a4a4a;border-radius:50%;content:"";height:6px;left:0;margin:-3px 0 0;
+    pointer-events:none;position:absolute;top:50%;width:6px;}
+
+.login_foot{margin:30px 35px;}
+.login_btn{background-color:#f07f20;border:1px solid #f07f20;color:#fff;display:block;font-size:18px;
+    line-height:1;padding:12px 0}
+.login_btn:after{border:none;}
+.login_btn_hover{opacity:.7;}

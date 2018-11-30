@@ -1,0 +1,19 @@
+<view class='page_wrap'>
+
+    <view class='login_head'>
+        <view class='login_avatar'>
+            <open-data class='login_avatar_img' type='userAvatarUrl'></open-data>
+        </view>
+        <view class='login_nickname'>
+            <open-data type='userNickName'></open-data>
+        </view>
+    </view>
+    <view class='login_main'>
+        <view class='login_title'>请点击下方按钮同意授权：</view>
+        <view class='login_item'>每个人心中都有一个压箱底的好故事。</view>
+        <view class='login_item'>授权登录后可获取更多权限，与其他用户分享您心中的好故事。</view>
+    </view>
+    <view class='login_foot'>
+      <button class='login_btn' hover-class='login_btn_hover' open-type='getUserInfo' bindgetuserinfo='userinfo_pro'  lang='zh_CN'>确认授权</button>
+    </view>
+</view>

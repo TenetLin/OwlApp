@@ -1,0 +1,20 @@
+page { background: #f8f8f8; font-family: PingFangSC-Regular; }
+.user-container { background: #fff; height: 80px; padding-left: 30rpx;}
+.userinfo { display: flex; align-items: center;  height: 80px; position: relative;}
+.userinfo .avatar { width: 65px; height: 65px;border-radius: 50%;overflow: hidden }
+.userinfo .uname { font-size: 16px; color: #111; margin-left: 20px;}
+.userinfo .user-right { float: right; width: 14px; height: 21px; position: absolute; right: 20px;}
+
+.his-data { font-size:14px; color: #636363;margin-top: 2px; background: #fff; padding: 20px 0;}
+.his-data .item { display: inline-block; }
+.his-data .left { width: 20%;}
+.his-data .right { width: 20%;}
+.his-data .mid { width: 60%;}
+.his-data .item view { text-align: center;}
+.his-data .item .data { font-weight: bold; color: #111;}
+.his-data .right view { margin-right: 16px; }
+
+.menu{ background: #fff; margin-top: 10px; font-size: 14px; color: #111;}
+.menu .item{padding: 15px 0;position: relative; border-bottom: 1px solid #e7e7e7; margin-left: 15px;}
+.menu .item_hover{background-color: rgba(0, 0, 0, 0.1);}
+.menu .right { width: 16px; height: 16px; float: right; margin-right: 15px; }

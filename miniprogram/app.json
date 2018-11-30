@@ -1,0 +1,41 @@
+{
+  "pages": [
+    "pages/myself/index",
+    "pages/publish/index",
+    "pages/index/index",
+    "pages/login/index"
+  ],
+  "tabBar": {
+    "color": "#a5a5a5",
+    "selectedColor": "#EF7F21",
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/index_default.png",
+        "selectedIconPath": "images/index_select.png",
+        "text": "主页"
+      },
+      {
+        "pagePath": "pages/publish/index",
+        "iconPath": "images/plus.png",
+        "selectedIconPath": "images/plus_select.png",
+        "text": "发布"
+      },
+      {
+        "pagePath": "pages/myself/index",
+        "iconPath": "images/my_default.png",
+        "selectedIconPath": "images/my_select.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#213C5C",
+    "navigationBarTitleText": "夜飞鹊",
+    "navigationBarTextStyle": "white"
+  },
+  "debug": true
+}
