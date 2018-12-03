@@ -1,5 +1,5 @@
 'use strict'
-const { wx_login } = require('../../common/login.js');
+wx.cloud.init()
 
 Page({
 
@@ -67,6 +67,18 @@ Page({
   },
   //用户点击确认授权按钮的操作时间
   userinfo_pro: function (ret) {
-    console.log(ret);
+    console.log(ret)
+    wx.cloud.callFunction({
+      data: ret.detail,
+      name: 'active_user',
+      success ({ errMsg, result }) {
+        console.log(errMsg, result)
+        if (result.ret === 0) {
+          wx.switchTab({
+            url: '/pages/index/index',
+          })
+        }
+      }
+    })
   }
 })

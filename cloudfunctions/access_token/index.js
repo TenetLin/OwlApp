@@ -9,7 +9,7 @@ const url = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credentia
 exports.main = async (event, context) => {
 
   //从数据库查询appid和appsecret
-  return new Promise((resolve, reject) => {
+  return new Promise(resolve => {
     return db.collection('owl_utils').where({ _id: 'app' }).get().then(res => {
       const { appid, appsecret } = res.data[0]
       let req_url = url.replace('APPID', appid).replace('APPSECRET', appsecret)
@@ -18,20 +18,18 @@ exports.main = async (event, context) => {
         console.log('get access_token suc, data=', data)
         const access_token = data.access_token
 
-        db.collection('owl_utils').where({ _id: 'app' }).update({
+        return db.collection('owl_utils').where({ _id: 'app' }).update({
           data: {
             access_token,
             last_modify: new Date()
           }
-        }).then(console.log).catch(console.error)
-
-      }).catch(ex => {
-        console.log('get access_token err, ex=', ex)
-      });
-    }).catch(ex => {
-      console.log('get db data error ex=', ex)
+        })
+      })
     }).then(res => {
-      resolve(res)
+      console.log('process succfull', res)
+    }).catch(ex => {
+      console.log('process error', ex)
+      resolve('OK')
     })
   })
 }

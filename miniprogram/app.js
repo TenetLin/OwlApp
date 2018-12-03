@@ -1,5 +1,6 @@
 'use strict'
-const { login } = require('./common/login.js');
+const { goToLogin } = require('./common/common.js');
+wx.cloud.init()
 
 App({
 
@@ -13,7 +14,49 @@ App({
    * 当小程序启动，或从后台进入前台显示，会触发 onShow
    */
   onShow: function (options) {
-    login();
+    //检查登录态是否过期
+    wx.checkSession({
+      success() {
+        wx.cloud.callFunction({
+          // 需调用的云函数名
+          name: 'login',
+          success({ errMsg, result }) {
+            console.log(arguments)
+            if (result.ret !== 1) {
+              goToLogin();
+            }
+          }
+        })
+      },
+      fail() {
+        //尝试去登录
+        wx.login({
+          success(res) {
+            if (res.code) {
+              console.log(res.code)
+              wx.cloud.callFunction({
+                // 需调用的云函数名
+                name: 'code',
+                data: { code: res.code },
+                // 成功回调
+                success({ errMsg, result }) {
+                  console.log('code success', errMsg, result)
+                  //用户尚未激活
+                  if (result.ret === 0) {
+                    goToLogin();
+                  }
+                },
+                fail() {
+                  console.log('code error', arguments)
+                }
+              })
+            } else {
+              console.log('登录失败！' + res.errMsg)
+            }
+          }
+        })
+      }
+    })
   },
 
   /**

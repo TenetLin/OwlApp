@@ -6,6 +6,8 @@ const cloud = require('wx-server-sdk')
 // 初始化 cloud
 cloud.init()
 
+const db = cloud.database()
+
 /**
  * 这个示例将经自动鉴权过的小程序用户 openid 返回给小程序端
  * 
@@ -13,11 +15,16 @@ cloud.init()
  * 
  */
 exports.main = (event, context) => {
-  console.log('envent=', event);
-  console.log('cloud=', cloud);
-  console.log('database=', cloud.database());
-  console.log('context=', context);
   // 获取 WX Context (微信调用上下文)，包括 OPENID、APPID、及 UNIONID（需满足 UNIONID 获取条件）
-  const wxContext = cloud.getWXContext()
-  return cloud.getWXContext();
+  const { APPID, OPENID } = cloud.getWXContext()
+  return new Promise(resovle => {
+    //查询用户的注册信息
+    return db.collection('owl_user').where({ _id: OPENID }).get().then(res => {
+      
+      return resovle({ ret: res.data && res.data[0] && res.data[0].active || 0, msg: 'OK' })
+      
+    }).catch(ex => {
+      resovle({ ret: -100, msg: 'error' })
+    })
+  })
 }

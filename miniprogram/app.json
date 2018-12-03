@@ -1,8 +1,8 @@
 {
   "pages": [
     "pages/myself/index",
-    "pages/publish/index",
     "pages/index/index",
+    "pages/publish/index",
     "pages/login/index"
   ],
   "tabBar": {
