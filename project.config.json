@@ -7,12 +7,13 @@
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
-		"nodeModules": false,
+		"nodeModules": true,
 		"autoAudits": false
 	},
 	"appid": "wx9b52f14eba6e62fd",
 	"projectname": "OwlApp",
 	"libVersion": "2.2.5",
+	"compileType": "miniprogram",
 	"condition": {
 		"search": {
 			"current": -1,

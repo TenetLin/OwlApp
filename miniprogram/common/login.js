@@ -1,15 +1,14 @@
 'use strict'
+wx.cloud.init()
 
-exports.wx_login = function (cb) {
-  wx.login({
-    success(res) {
-      if (res.code) {
-        //TODO::
-        console.log(res);
-      } else {
-        //获取code失败
-        console.log('get code error', res);
-      }
+exports.login = function (cb) {
+  wx.cloud.callFunction({
+    // 需调用的云函数名
+    name: 'login',
+    // 成功回调
+    complete({ errMsg, result }) {
+      console.log(errMsg);
+      cb && cb(result);
     }
   })
 };

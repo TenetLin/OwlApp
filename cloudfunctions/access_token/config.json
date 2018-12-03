@@ -1,0 +1,9 @@
+{
+  "triggers": [
+    {
+      "name": "access_token",
+      "type": "timer",
+      "config": "0 * * * *"
+    }
+  ]
+}

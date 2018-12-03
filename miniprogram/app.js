@@ -1,31 +1,19 @@
 'use strict'
-const { wx_login } = require('./common/login')
-const url = require('./common/utils')
-wx.cloud.init();
+const { login } = require('./common/login.js');
+
 App({
 
   /**
    * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
    */
   onLaunch: function () {
-    wx.cloud.callFunction({
-      // 需调用的云函数名
-      name: 'login',
-      // 传给云函数的参数
-      data: {
-        a: 12,
-        b: 19,
-      },
-      // 成功回调
-      complete: console.log
-    })
   },
 
   /**
    * 当小程序启动，或从后台进入前台显示，会触发 onShow
    */
   onShow: function (options) {
-    
+    login();
   },
 
   /**

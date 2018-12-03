@@ -1,5 +1,5 @@
 {
-  "name": "login",
+  "name": "access_token",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "node-fetch": "2.3.0",
     "wx-server-sdk": "0.0.27"
   }
 }
