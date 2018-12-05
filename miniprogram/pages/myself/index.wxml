@@ -7,15 +7,15 @@
 </view>
 <view class='his-data'>
     <view class='item left'>
-      <view class='data'>13.5w</view>
+      <view class='data'>{{resonanceNum}}</view>
       <view>共鸣</view>
     </view>
     <view class='item mid'>
-      <view class='data'>350</view>
+      <view class='data'>{{attentionNum}}</view>
       <view>关注</view>
     </view>
     <view class='item right'>
-        <view class='data'>200.5w</view>
+        <view class='data'>{{fansNum}}</view>
         <view>粉丝</view>
     </view>
   </view>

@@ -1,5 +1,5 @@
 // 云函数模板
-// 部署：在 cloud-functions/login 文件夹右击选择 “上传并部署”
+// 部署：在 cloud-functions/user_info 文件夹右击选择 “上传并部署”
 
 const cloud = require('wx-server-sdk')
 
@@ -20,11 +20,27 @@ exports.main = (event, context) => {
   return new Promise(resovle => {
     //查询用户的注册信息
     return db.collection('owl_user').where({ _id: OPENID }).get().then(res => {
-      
-      return resovle({ ret: res.data && res.data[0] && res.data[0].active || 0, msg: 'OK' })
+
+      if (res.data && res.data[0] && res.data[0].active === 1) {
+        const user = res.data[0]
+        return resovle({ 
+          ret: 1, 
+          msg: 'OK', 
+          data: { 
+            uid: user.uid, 
+            resonanceNum: user.resonanceNum || 0,
+            attentionNum: user.attentionNum || 0,
+            fansNum: user.fansNum || 0
+          }
+        })
+      } else {
+        return resovle({ ret: 0, msg: 'OK'})
+      }
       
     }).catch(ex => {
+
       resovle({ ret: -100, msg: 'error' })
+
     })
   })
 }

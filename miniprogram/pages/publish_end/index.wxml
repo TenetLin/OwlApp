@@ -1,0 +1,12 @@
+<view class='story-content'>
+  <textarea placeholder='接下来写故事结尾吧～'></textarea>
+</view>
+
+<view class='footer'>
+  <image src='/images/upload.png' class='upload' bindtap='chooseImage'></image>
+  <view class='radio {{checked ? "checked": ""}}' bindtap='tap_radio'>
+    <image class='image'></image>
+    <text class='text'>原创</text>
+  </view>
+<button class='btn' bindtap='submit'>提交</button>
+</view>

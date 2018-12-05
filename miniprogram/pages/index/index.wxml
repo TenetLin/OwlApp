@@ -1,13 +1,15 @@
 <view class='header'>
-  <image class='user' src='/images/user3.png'/>
-  <text class='date'>2018年11月28日</text>
+  <!-- <image class='user' src='/images/test_user.png'/> -->
+  <open-data type='userAvatarUrl' class='user'></open-data>
+  <text class='date'>{{date}}</text>
   <image class='weather-icon' src='/images/weather3.png'/>
   <text class='weather-text'>多云</text>
 </view>
-<view class='content'>
+
+<navigator class='content' hover-class='item_hover' url='/pages/story_detail/index'>
   <view class='header'>
     <view class='tag'>原创</view>
-    <image class='owner-icon' src='/images/user_icon.jpg'/>
+    <image class='owner-icon' src='/images/test_user.png'/>
     <text class='owner-text'>作者: 大耳朵</text>
     <text class='text-date'>1小时以前</text>
   </view>
@@ -20,14 +22,14 @@
    <view class='more'>
     <text>查看更多</text>
     <image src='/images/arrow3.png'/>
-    </view>
+    </view> 
   </view>
   
-</view>
-<view class='content'>
+</navigator>
+<navigator class='content' hover-class='item_hover' url='/pages/story_detail/index'>
   <view class='header'>
     <view class='tag'>原创</view>
-    <image class='owner-icon' src='/images/user_icon.jpg'/>
+    <image class='owner-icon' src='/images/test_user.png'/>
     <text class='owner-text'>作者: 大耳朵</text>
     <text class='text-date'>1小时以前</text>
   </view>
@@ -42,12 +44,11 @@
     <image src='/images/arrow3.png'/>
     </view>
   </view>
-  
-</view>
-<view class='content'>
+</navigator>
+<navigator class='content' hover-class='item_hover' url='/pages/story_detail/index'>
   <view class='header'>
     <view class='tag'>原创</view>
-    <image class='owner-icon' src='/images/user_icon.jpg'/>
+    <image class='owner-icon' src='/images/test_user.png'/>
     <text class='owner-text'>作者: 大耳朵</text>
     <text class='text-date'>1小时以前</text>
   </view>
@@ -62,4 +63,4 @@
     <image src='/images/arrow3.png'/>
     </view>
   </view>
-</view>
+</navigator>

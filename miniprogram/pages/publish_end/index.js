@@ -1,12 +1,11 @@
-const moment = require('../../common/moment.min.js')
-
+// miniprogram/pages/publish_ender/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    date: moment().format('YYYY年MM月DD日'),
+
   },
 
   /**
@@ -27,20 +26,28 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    wx.showTabBar({})
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
+    wx.navigateBack({
+      delta: 1,
+      success: function (e) {
+        console.log('back suc', e);
+      },
+      fail: function (e) {
+        console.log('back err', e);
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
   },
 
   /**
@@ -62,5 +69,10 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  submit: function () {
+    wx.switchTab({
+      url: '/pages/index/index',
+    })
   }
 })

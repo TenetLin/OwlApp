@@ -19,7 +19,7 @@ App({
       success() {
         wx.cloud.callFunction({
           // 需调用的云函数名
-          name: 'login',
+          name: 'user_info',
           success({ errMsg, result }) {
             console.log(arguments)
             if (result.ret !== 1) {

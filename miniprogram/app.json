@@ -1,8 +1,10 @@
 {
   "pages": [
-    "pages/myself/index",
+    "pages/publish_start/index",
     "pages/index/index",
-    "pages/publish/index",
+    "pages/story_detail/index",
+    "pages/myself/index",
+    "pages/publish_end/index",
     "pages/login/index"
   ],
   "tabBar": {
@@ -18,7 +20,7 @@
         "text": "主页"
       },
       {
-        "pagePath": "pages/publish/index",
+        "pagePath": "pages/publish_start/index",
         "iconPath": "images/plus.png",
         "selectedIconPath": "images/plus_select.png",
         "text": "发布"

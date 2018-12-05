@@ -1,0 +1,90 @@
+<view class='header'>
+  <!-- <image class='user' src='/images/user3.png'/> -->
+  <open-data type='userAvatarUrl' class='user'></open-data>
+  <text class='date'>{{date}}</text>
+  <image class='weather-icon' src='/images/weather3.png'/>
+  <text class='weather-text'>多云</text>
+</view>
+
+<view class='content'>
+  <view class='header'>
+    <view class='tag'>原创</view>
+    <image class='owner-icon' src='/images/test_user.png'/>
+    <text class='owner-text'>作者: 大耳朵</text>
+    <text class='text-date'>1小时以前</text>
+  </view>
+  <view class='text'>
+    <view>蒹葭苍苍，白露为霜。所谓伊人，在水一方。溯洄从之，道阻且长。溯游从之，宛在水中央。</view>
+    <view>蒹葭萋萋，白露未晞。所谓伊人，在水之湄。溯洄从之，道阻且跻。溯游从之，宛在水中坻。</view>
+    <view>蒹葭采采，白露未已。所谓伊人，在水之涘。溯洄从之，道阻且右。溯游从之，宛在水中沚。</view>
+        <view>蒹葭采采，白露未已。所谓伊人，在水之涘。溯洄从之，道阻且右。溯游从之，宛在水中沚。</view>
+  </view>
+  <view class='title'>诗经篇总集</view>
+
+  <view class='comment-container'>
+    <view class='title'>精彩评论</view>
+    <view class='list-item'>
+      <view class='user-container'>
+      <image class='user' src='/images/test_user.png'/>
+      <text class='nickname'>西窗夜雨</text>
+      </view>
+      <view class='comment-content'>这首诗写得很好</view>
+    </view>
+    <view class='list-item'>
+      <view class='user-container'>
+      <image class='user' src='/images/test_user.png'/>
+      <text class='nickname'>西窗夜雨</text>
+      </view>
+      <view class='comment-content'>这首诗写得不错</view>
+    </view>
+    <view class='list-item'>
+      <view class='user-container'>
+      <image class='user' src='/images/test_user.png'/>
+      <text class='nickname'>西窗夜雨</text>
+      </view>
+      <view class='comment-content'>这首诗写得不错</view>
+    </view>
+    <view class='list-item'>
+      <view class='user-container'>
+      <image class='user' src='/images/test_user.png'/>
+      <text class='nickname'>西窗夜雨</text>
+      </view>
+      <view class='comment-content'>这首诗写得不错</view>
+    </view>
+    <view class='list-item'>
+      <view class='user-container'>
+      <image class='user' src='/images/test_user.png'/>
+      <text class='nickname'>西窗夜雨</text>
+      </view>
+      <view class='comment-content'>这首诗写得不错</view>
+    </view>
+    <view class='list-item'>
+      <view class='user-container'>
+      <image class='user' src='/images/test_user.png'/>
+      <text class='nickname'>西窗夜雨</text>
+      </view>
+      <view class='comment-content'>这首诗写得不错</view>
+    </view>
+    <view class='list-item'>
+      <view class='user-container'>
+      <image class='user' src='/images/test_user.png'/>
+      <text class='nickname'>西窗夜雨</text>
+      </view>
+      <view class='comment-content'>这首诗写得不错</view>
+    </view>
+    <view class='list-item'>
+      <view class='user-container'>
+      <image class='user' src='/images/test_user.png'/>
+      <text class='nickname'>西窗夜雨</text>
+      </view>
+      <view class='comment-content'>这首诗写得不错</view>
+    </view>
+    <view class='list-item'>
+      <view class='user-container'>
+      <image class='user' src='/images/test_user.png'/>
+      <text class='nickname'>西窗夜雨</text>
+      </view>
+      <view class='comment-content'>这首诗写得不错</view>
+    </view>
+  </view>
+</view>

@@ -5,14 +5,41 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    resonanceNum: 0,
+    attentionNum: 0,
+    fansNum: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    try {
+      const data = (wx.getStorageSync('myself') || '{}')
+      this.setData({
+        resonanceNum: data.resonanceNum || 0,
+        attentionNum  : data.attentionNum || 0,
+        fansNum         : data.fansNum || 0
+      })
+    } catch (ex) {
+      console.log('get data from cache error, key=myself, ex=', ex)
+    }
+    const that = this
+    wx.cloud.callFunction({
+      // 需调用的云函数名
+      name: 'user_info',
+      success({ errMsg, result }) {
+        console.log(result)
+        if (result.ret === 1) {
+          that.setData(result.data)
+          try {
+            wx.setStorageSync('myself', JSON.stringify(result.data))
+          } catch (ex) {
+            console.log('get data to cache error, key=myself, ex=', ex)
+          }
+        }
+      }
+    })
   },
 
   /**

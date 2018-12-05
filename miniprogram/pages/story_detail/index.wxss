@@ -1,4 +1,4 @@
-page { background-color: #213C5C; font-family: PingFangSC-Regular; }
+/* miniprogram/pages/story_detail/index.wxss */page { background-color: #213C5C; font-family: PingFangSC-Regular; }
 .header { height: 22px; margin: 0 10px 10px;  font-size: 16px;color: #ECEDFB;}
 .user { width: 22px; height: 22px; float: left; border-radius: 50%;overflow: hidden}
 .date { height: 22px;  float: left; line-height: 22px; margin-left: 5px;}
@@ -20,3 +20,14 @@ page { background-color: #213C5C; font-family: PingFangSC-Regular; }
 .content .more {  padding: 20px;}
 .content .more text { font-size: 13px; color: #9B9B9B; text-align: center; margin: 0 auto; display: block;}
 .content .more image { transform:rotate(90deg); width: 5px; height: 10px;margin: 0 auto; display: block;}
+
+.content .title { color: #999; font-size: 13px; text-align: right; }
+
+.comment-container { margin: 20px 0; height: 100%;}
+.comment-container .title { font-size: 15px; font-weight: bold; color: #212121; text-align: left;}
+ .list-item { margin-top: 20px;}
+ .list-item .user-container { width: 100%; height: 32px;}
+.user-container .user { width: 27px; height: 27px; float: left; border-radius: 50%; }
+.user-container .nickname { float: left; color: #999; font-size: 14px; margin: 5px 0 0 12px;} 
+
+.list-item .comment-content { width: 100%; color: #212121; font-size: 14px; padding-left: 35px;}

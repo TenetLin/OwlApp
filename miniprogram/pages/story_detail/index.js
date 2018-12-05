@@ -1,11 +1,11 @@
-// pages/publish/index.js
+const moment = require('../../common/moment.min.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    date: moment().format('YYYY年MM月DD日'),
   },
 
   /**

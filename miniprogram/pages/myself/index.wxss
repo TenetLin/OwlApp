@@ -14,7 +14,8 @@ page { background: #f8f8f8; font-family: PingFangSC-Regular; }
 .his-data .item .data { font-weight: bold; color: #111;}
 .his-data .right view { margin-right: 16px; }
 
+.item_hover{background-color: rgba(0, 0, 0, 0.1);}
+
 .menu{ background: #fff; margin-top: 10px; font-size: 14px; color: #111;}
 .menu .item{padding: 15px 0;position: relative; border-bottom: 1px solid #e7e7e7; margin-left: 15px;}
-.menu .item_hover{background-color: rgba(0, 0, 0, 0.1);}
 .menu .right { width: 16px; height: 16px; float: right; margin-right: 15px; }
