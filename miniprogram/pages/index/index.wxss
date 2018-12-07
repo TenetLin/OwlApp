@@ -1,14 +1,14 @@
 page { background-color: #213C5C; font-family: PingFangSC-Regular; }
-.header { height: 22px; margin: 0 10px 10px;  font-size: 16px;color: #ECEDFB;}
+.page-header { height: 22px; margin: 0 10px 10px;  font-size: 16px; color: #ECEDFB;}
 .user { width: 22px; height: 22px; float: left; border-radius: 50%;overflow: hidden}
 .date { height: 22px;  float: left; line-height: 22px; margin-left: 5px;}
 .weather-text { height: 22px; float: right;margin-right: 5px;}
 .weather-icon { width: 17px; height: 14px; float: right; margin-top: 4px;}
 
-.item_hover{background-color: rgba(0, 0, 0, 0.1);}
+.item_hover{background-color: rgba(0, 0, 0, 0.1); }
 
 .content { display: block; margin: 0 10px 10px; background-color:#fff; border-radius: 10px; padding: 20px 20px 30px; position: relative;}
-.content .header { display: block; height: 27px; margin: 0;}
+.content .header { display: block; height: 27px; margin: 0; color: #fff;}
 .content .header .tag { background-color: #5B94DC; float: left; font-size: 13px; padding: 2px 7px; border-radius: 5px; margin-top: 2px;}
 .content .header .owner-icon { width: 27px; height: 27px; float: left; border-radius: 50%; margin-left: 10px; }
 .content .header .owner-text { color: #002464; font-size:14px; float: left; margin: 3px 10px; }

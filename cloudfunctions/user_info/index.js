@@ -27,7 +27,8 @@ exports.main = (event, context) => {
           ret: 1, 
           msg: 'OK', 
           data: { 
-            uid: user.uid, 
+            uid: user.uid,
+            openid: OPENID,
             resonanceNum: user.resonanceNum || 0,
             attentionNum: user.attentionNum || 0,
             fansNum: user.fansNum || 0

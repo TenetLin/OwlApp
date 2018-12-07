@@ -24,8 +24,15 @@ App({
             console.log(arguments)
             if (result.ret !== 1) {
               goToLogin();
+            } else {
+              try {
+                wx.setStorageSync('myself', JSON.stringify(result.data))
+              } catch (ex) {
+                console.log('get data to cache error, key=myself, ex=', ex)
+              }
             }
-          }
+          },
+          fail: goToLogin
         })
       },
       fail() {

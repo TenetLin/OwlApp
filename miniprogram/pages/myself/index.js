@@ -15,7 +15,7 @@ Page({
    */
   onLoad: function (options) {
     try {
-      const data = (wx.getStorageSync('myself') || '{}')
+      const data = JSON.parse(wx.getStorageSync('myself') || '{}')
       this.setData({
         resonanceNum: data.resonanceNum || 0,
         attentionNum  : data.attentionNum || 0,

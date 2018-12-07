@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/publish_start/index",
+    "pages/publish/index",
     "pages/index/index",
     "pages/story_detail/index",
     "pages/myself/index",
@@ -20,7 +20,7 @@
         "text": "主页"
       },
       {
-        "pagePath": "pages/publish_start/index",
+        "pagePath": "pages/publish/index",
         "iconPath": "images/plus.png",
         "selectedIconPath": "images/plus_select.png",
         "text": "发布"
