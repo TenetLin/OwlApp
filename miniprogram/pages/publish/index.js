@@ -242,17 +242,9 @@ Page({
           //文章标题
           title: that.data.title,
           start_text: (that.data.start_text || '').trim(),
-          start_images: (that.data.start_images || []).map(item => { 
-            item.temp_src = null
-            item.store_src = null
-            return item
-          }).filter(s => !!s),
+          start_images: that.data.start_images || [],
           end_text: (that.data.end_text || '').trim(),
-          end_images: (that.data.end_images || []).map(item => {
-            item.temp_src = null
-            item.store_src = null
-            return item
-          }).filter(s => !!s),
+          end_images: that.data.end_images || [],
         }
         
         wx.cloud.callFunction({
@@ -261,10 +253,12 @@ Page({
           success({ errMsg, result }) {
 
             console.log(arguments)
-            that.del()
             if (result.ret === 0) {
               remove_files(that.data.start_images, function () {
                 remove_files(that.data.end_images, function () {
+                 
+                  wx.hideLoading()
+                  wx.showToast({ title: '成功' })
                   that.del()
                   that.setData({
                     checked: false,
@@ -276,13 +270,11 @@ Page({
                     end_images: [],
                     index: 0,
                   })
-                  wx.hideLoading()
-                  wx.showToast({ title: '成功' })
                   setTimeout(function () {
                     wx.reLaunch({
                       url: '/pages/index/index',
                     })
-                  }, 100)
+                  }, 1000)
                 })
               })
             } else {
@@ -292,7 +284,7 @@ Page({
                 wx.reLaunch({
                   url: '/pages/index/index',
                 })
-              }, 100)
+              }, 1000)
             }
           },
           fail (error) {

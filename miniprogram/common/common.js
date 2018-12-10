@@ -1,8 +1,5 @@
 wx.cloud.init()
 
-/*
-{"checked":false,"title":"123123123","start_text":"123123123","start_images":[{"temp_src":"http://tmp/wx9b52f14eba6e62fd.o6zAJs41qbHMey6c8bndfsyx16s4.MgPAsH6mvn3Pf104157fa461f311a9fda5672cdbcd75.jpeg","store_src":"http://store/wx9b52f14eba6e62fd.o6zAJs41qbHMey6c8bndfsyx16s4.MgPAsH6mvn3Pf104157fa461f311a9fda5672cdbcd75.jpeg"},{"temp_src":"http://tmp/wx9b52f14eba6e62fd.o6zAJs41qbHMey6c8bndfsyx16s4.fu12YGh8V0nY547f49cc06c35b4aa9b9d37d1aa65eb4.jpeg","store_src":"http://store/wx9b52f14eba6e62fd.o6zAJs41qbHMey6c8bndfsyx16s4.fu12YGh8V0nY547f49cc06c35b4aa9b9d37d1aa65eb4.jpeg"},{"temp_src":"http://tmp/wx9b52f14eba6e62fd.o6zAJs41qbHMey6c8bndfsyx16s4.A2hkA3VVxkmb565a20f3fa197cfeec6d273b3c32f34a.jpeg","store_src":"http://store/wx9b52f14eba6e62fd.o6zAJs41qbHMey6c8bndfsyx16s4.A2hkA3VVxkmb565a20f3fa197cfeec6d273b3c32f34a.jpeg"}],"end_text":"1231231231","end_images":[{"temp_src":"http://tmp/wx9b52f14eba6e62fd.o6zAJs41qbHMey6c8bndfsyx16s4.O44ehuSkzrEJ921ce59ab623554f279bae9ed7c3bee5.jpeg","store_src":"http://store/wx9b52f14eba6e62fd.o6zAJs41qbHMey6c8bndfsyx16s4.O44ehuSkzrEJ921ce59ab623554f279bae9ed7c3bee5.jpeg"},{"temp_src":"http://tmp/wx9b52f14eba6e62fd.o6zAJs41qbHMey6c8bndfsyx16s4.iADYKlIwwReK827cb6d2d1353952448c8b2bdd0b2167.jpeg"}],"index":0,"__webviewId__":838}
- */
 
 exports.goToLogin = goToLogin
 exports.upload_files = upload_files
@@ -39,7 +36,7 @@ function save_files(files, cb, index) {
       files[index].store_src = res.savedFilePath
     },
     fail(res) {
-      wx.showToast({ title: '图片太大', image: '/images/warning.png' })
+      wx.showToast({ title: '图片大小超限', image: '/images/warning.png' })
       console.log('saveFile error', res)
       files.splice(index, 1)
       index = index -1

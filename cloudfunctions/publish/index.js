@@ -13,6 +13,21 @@ exports.main = async (event, context) => {
   const data = event
   data.date_time = Date.now()
   data.date = moment().format('YYYYMMDD')
+  data.start_images = data.start_images.map(item => {
+    item.store_src = null
+    item.temp_src = null
+    delete item.store_src
+    delete item.temp_src
+    return item
+  })
+
+  data.end_images = data.end_images.map(item => {
+    item.store_src = null
+    item.temp_src = null
+    delete item.store_src
+    delete item.temp_src
+    return item
+  })
 
   return new Promise(resolve => {
     return utils_collection.doc('story_id').get().then(res => {
