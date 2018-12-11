@@ -24,7 +24,7 @@ Page({
       const data = JSON.parse(wx.getStorageSync('publish') || '{}')
       this.setData(data)
     } catch (ex) {
-      console.log('get data from cache error, key=myself, ex=', ex)
+      console.log('get data from cache error, key=list, ex=', ex)
     }
   },
 
@@ -190,11 +190,12 @@ Page({
    * 原创按钮点击
    */
   tapRadio: function (e) {
-    console.log('tap')
 
     this.setData({
       checked: !this.data.checked
     })
+
+    console.log('tap', this.data)
 
     this.save()
   },
@@ -238,7 +239,7 @@ Page({
 
         const data = {
           uid: user_info.uid,
-          checked: false,
+          checked: that.data.checked,
           //文章标题
           title: that.data.title,
           start_text: (that.data.start_text || '').trim(),

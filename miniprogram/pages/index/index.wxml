@@ -6,17 +6,16 @@
 </view>
 
 <view class='content-container'>
-  <navigator class='content' hover-class='item_hover' url='/pages/story_detail/index'>
+  <navigator class='content' wx:for='{{list}}' wx:key='_id' wx:for-item='item' wx:for-index='idx' hover-class='item_hover' url='/pages/story_detail/index?id={{item._id}}'>
     <view class='header'>
-      <view class='tag'>原创</view>
-      <image class='owner-icon' src='/images/test_user.png'/>
-      <text class='owner-text'>作者: 大耳朵</text>
-      <text class='text-date'>1小时以前</text>
+      <view wx:if='{{item.checked}}' class='tag'>原创</view>
+      <image class='owner-icon' src='{{item.userInfo.avatarUrl}}'/>
+      <text class='owner-text'>作者: {{item.userInfo.nickName}}</text>
+      <!--<text class='text-date'>1小时以前</text>-->
     </view>
     <view class='text'>
-      <view>蒹葭苍苍，白露为霜。所谓伊人，在水一方。溯洄从之，道阻且长。溯游从之，宛在水中央。</view>
-      <view>蒹葭萋萋，白露未晞。所谓伊人，在水之湄。溯洄从之，道阻且跻。溯游从之，宛在水中坻。</view>
-      <view>蒹葭采采，白露未已。所谓伊人，在水之涘。溯洄从之，道阻且右。溯游从之，宛在水中沚。</view>
+      <view>{{item.start_text}}</view>
+      <image class='image' mode='aspectFit' wx:for='{{item.start_images}}' wx:for-item='image' wx:key='fileID' src='{{image.tempFileURL}}'></image>
     </view>
     <view class='more-container'>
     <view class='more'>
@@ -25,43 +24,5 @@
       </view> 
     </view>
     
-  </navigator>
-  <navigator class='content' hover-class='item_hover' url='/pages/story_detail/index'>
-    <view class='header'>
-      <view class='tag'>原创</view>
-      <image class='owner-icon' src='/images/test_user.png'/>
-      <text class='owner-text'>作者: 大耳朵</text>
-      <text class='text-date'>1小时以前</text>
-    </view>
-    <view class='text'>
-      <view>蒹葭苍苍，白露为霜。所谓伊人，在水一方。溯洄从之，道阻且长。溯游从之，宛在水中央。</view>
-      <view>蒹葭萋萋，白露未晞。所谓伊人，在水之湄。溯洄从之，道阻且跻。溯游从之，宛在水中坻。</view>
-      <view>蒹葭采采，白露未已。所谓伊人，在水之涘。溯洄从之，道阻且右。溯游从之，宛在水中沚。</view>
-    </view>
-    <view class='more-container'>
-    <view class='more'>
-      <text>查看更多</text>
-      <image src='/images/arrow3.png'/>
-      </view>
-    </view>
-  </navigator>
-  <navigator class='content' hover-class='item_hover' url='/pages/story_detail/index'>
-    <view class='header'>
-      <view class='tag'>原创</view>
-      <image class='owner-icon' src='/images/test_user.png'/>
-      <text class='owner-text'>作者: 大耳朵</text>
-      <text class='text-date'>1小时以前</text>
-    </view>
-    <view class='text'>
-      <view>蒹葭苍苍，白露为霜。所谓伊人，在水一方。溯洄从之，道阻且长。溯游从之，宛在水中央。</view>
-      <view>蒹葭萋萋，白露未晞。所谓伊人，在水之湄。溯洄从之，道阻且跻。溯游从之，宛在水中坻。</view>
-      <view>蒹葭采采，白露未已。所谓伊人，在水之涘。溯洄从之，道阻且右。溯游从之，宛在水中沚。</view>
-    </view>
-    <view class='more-container'>
-    <view class='more'>
-      <text>查看更多</text>
-      <image src='/images/arrow3.png'/>
-      </view>
-    </view>
   </navigator>
 </view>

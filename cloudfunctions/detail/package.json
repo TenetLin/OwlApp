@@ -1,5 +1,5 @@
 {
-  "name": "access_token",
+  "name": "getDetail",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,7 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "node-fetch": "2.3.0",
-    "wx-server-sdk": "0.0.27"
+    "wx-server-sdk": "latest"
   }
 }

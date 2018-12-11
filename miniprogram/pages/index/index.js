@@ -14,16 +14,33 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+    try {
+      const data = JSON.parse(wx.getStorageSync('list') || '{}')
+      this.setData(data)
+    } catch (ex) {
+      console.log('get data from cache error, key=list, ex=', ex)
+    }
+
+    const that = this
+    const date = '20181211' || moment().format('YYYYMMDD')
+    
     wx.cloud.callFunction({
       // 需调用的云函数名
       name: 'getlist',
-      data: {
-        date:  '20181210'
-      },
+      data: { date },
       success({ errMsg, result }) {
-        console.log(arguments)
+        
+        console.log('get list suc', errMsg, result)
+
+        that.setData({
+          list: result
+        })
+        that.save()
       },
-      fail: console.error
+      fail(error) {
+        console.log('get list error', error)
+      }
     })
   },
 
@@ -73,5 +90,13 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  
+  save: function () {
+    try {
+      wx.setStorageSync('list', JSON.stringify(this.data))
+    } catch (ex) {
+      console.log('get data to cache error, key=list, ex=', ex)
+    }
   }
 })

@@ -6,13 +6,30 @@ Page({
    */
   data: {
     date: moment().format('YYYY年MM月DD日'),
+    detail: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function ({ id }) {
+    const that = this
+    wx.cloud.callFunction({
+      // 需调用的云函数名
+      name: 'detail',
+      data: { id },
+      success({ errMsg, result }) {
+        console.log('detail', errMsg, result)
+        that.setData({
+          detail: result
+        })
+      },
+      fail(error) {
 
+        console.log('error', error)
+        
+      }
+    })
   },
 
   /**
