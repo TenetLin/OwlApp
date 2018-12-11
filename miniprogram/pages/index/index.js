@@ -14,7 +14,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    wx.cloud.callFunction({
+      // 需调用的云函数名
+      name: 'getlist',
+      data: {
+        date:  '20181210'
+      },
+      success({ errMsg, result }) {
+        console.log(arguments)
+      },
+      fail: console.error
+    })
   },
 
   /**

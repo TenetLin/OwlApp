@@ -242,9 +242,9 @@ Page({
           //文章标题
           title: that.data.title,
           start_text: (that.data.start_text || '').trim(),
-          start_images: that.data.start_images || [],
+          start_images: (that.data.start_images || []),
           end_text: (that.data.end_text || '').trim(),
-          end_images: that.data.end_images || [],
+          end_images: (that.data.end_images || []),
         }
         
         wx.cloud.callFunction({

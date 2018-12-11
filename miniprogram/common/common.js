@@ -103,7 +103,7 @@ function upload_files (files, type, cb, index) {
     success: res => {
       // 返回文件 ID
       console.log(res.fileID)
-      files[index].file_id = res.fileID
+      files[index].fileID = res.fileID
     },
     fail: console.error,
     complete (res) {

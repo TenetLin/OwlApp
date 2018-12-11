@@ -1,6 +1,5 @@
 'use strict'
 const { goToLogin } = require('./common/common.js');
-wx.cloud.init()
 
 App({
 
@@ -8,23 +7,13 @@ App({
    * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
    */
   onLaunch: function () {
-    wx.cloud.callFunction({
-      // 需调用的云函数名
-      name: 'getlist',
-      data: {
-        date:  '20181207'
-      },
-      success({ errMsg, result }) {
-        console.log(arguments)
-      },
-      fail: console.error
-    })
+    this.Login()
   },
 
   /**
-   * 当小程序启动，或从后台进入前台显示，会触发 onShow
+   * 登录
    */
-  onShow: function (options) {
+  Login: function () {
     //检查登录态是否过期
     wx.checkSession({
       success() {
@@ -32,7 +21,7 @@ App({
           // 需调用的云函数名
           name: 'user_info',
           success({ errMsg, result }) {
-            console.log(arguments)
+            console.log('user_info', arguments)
             if (result.ret !== 1) {
               goToLogin();
             } else {
@@ -75,6 +64,12 @@ App({
         })
       }
     })
+  },
+
+  /**
+   * 当小程序启动，或从后台进入前台显示，会触发 onShow
+   */
+  onShow: function (options) {
   },
 
   /**
