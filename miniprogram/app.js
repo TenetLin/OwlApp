@@ -32,7 +32,10 @@ App({
               }
             }
           },
-          fail: goToLogin
+          fail(error) {
+            console.log('user_info call error', error)
+            goToLogin()
+          } 
         })
       },
       fail() {

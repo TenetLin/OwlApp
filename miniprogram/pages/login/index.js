@@ -67,13 +67,16 @@ Page({
   },
   //用户点击确认授权按钮的操作时间
   userinfo_pro: function (ret) {
-    console.log(ret)
+    console.log('userinfo=', ret)
+    const that = this
     wx.cloud.callFunction({
       data: ret.detail,
       name: 'active_user',
       success ({ errMsg, result }) {
         console.log(errMsg, result)
         if (result.ret === 0) {
+
+          that.save(result)
           wx.switchTab({
             url: '/pages/index/index',
           })

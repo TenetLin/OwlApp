@@ -75,7 +75,7 @@ Page({
 
   //页面元素的输入
   input: function (e) {
-    console.log(e)
+    // console.log(e)
     
     //标题输入
     if (e.target.id === 'title') {
@@ -149,7 +149,7 @@ Page({
     var that = this
     wx.chooseImage({
       count,                                          //最多可以选择的图片张数，默认9
-      // sizeType: ['compressed'],           // 可以指定是原图还是压缩图，默认二者都有
+      sizeType: ['compressed'],           // 可以指定是原图还是压缩图，默认二者都有
       // sourceType: ['album', 'camera'],  // 可以指定来源是相册还是相机，默认二者都有
       success: function (res) {
 

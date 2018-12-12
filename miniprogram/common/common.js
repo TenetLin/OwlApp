@@ -1,6 +1,5 @@
 wx.cloud.init()
 
-
 exports.goToLogin = goToLogin
 exports.upload_files = upload_files
 exports.save_files = save_files
