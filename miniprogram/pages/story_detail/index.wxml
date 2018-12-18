@@ -8,9 +8,9 @@
 
 <view class='content'>
   <view class='header'>
-    <view class='tag' wx:if='{{detail.checked}}'>原创</view>
     <image class='owner-icon' src='{{detail.userInfo.avatarUrl}}'/>
-    <text class='owner-text'>作者: {{detail.userInfo.nickName}}</text>
+    <text class='owner-text'>{{detail.userInfo.nickName}}</text>
+    <view class='tag' wx:if='{{detail.checked}}'>原创</view>
     <!--<text class='text-date'>1小时以前</text>-->
   </view>
   <view class='text'>

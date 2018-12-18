@@ -75,8 +75,6 @@ Page({
       success ({ errMsg, result }) {
         console.log(errMsg, result)
         if (result.ret === 0) {
-
-          that.save(result)
           wx.switchTab({
             url: '/pages/index/index',
           })

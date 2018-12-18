@@ -8,9 +8,9 @@
 <view class='content-container'>
   <navigator class='content' wx:for='{{list}}' wx:key='_id' wx:for-item='item' wx:for-index='idx' hover-class='item_hover' url='/pages/story_detail/index?id={{item._id}}'>
     <view class='header'>
-      <view wx:if='{{item.checked}}' class='tag'>原创</view>
       <image class='owner-icon' src='{{item.userInfo.avatarUrl}}'/>
-      <text class='owner-text'>作者: {{item.userInfo.nickName}}</text>
+      <text class='owner-text'>{{item.userInfo.nickName}}</text>
+      <view wx:if='{{item.checked}}' class='tag'>原创</view>
       <!--<text class='text-date'>1小时以前</text>-->
     </view>
     <view class='text'>

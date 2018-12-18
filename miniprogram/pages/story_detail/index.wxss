@@ -10,7 +10,7 @@
 .content { display: block; margin: 0 10px 10px; background-color:#fff; border-radius: 10px; padding: 20px 20px 30px; position: relative;}
 .content .header { display: block; height: 27px; margin: 0;}
 .content .header .tag { background-color: #5B94DC; float: left; font-size: 13px; padding: 2px 7px; border-radius: 5px; margin-top: 2px;}
-.content .header .owner-icon { width: 27px; height: 27px; float: left; border-radius: 50%; margin-left: 10px; }
+.content .header .owner-icon { width: 27px; height: 27px; float: left; border-radius: 50%;}
 .content .header .owner-text { color: #002464; font-size:14px; float: left; margin: 3px 10px; }
 .content .header .text-date { float: right; color: #999999; font-size: 14px; margin-top: 3px;}
 .content .text { font-size: 15px; color: #434343; line-height: 27px; margin: 20px 0;}
@@ -22,13 +22,13 @@
 .content .more text { font-size: 13px; color: #9B9B9B; text-align: center; margin: 0 auto; display: block;}
 .content .more image { transform:rotate(90deg); width: 5px; height: 10px;margin: 0 auto; display: block;}
 
-.content .title { color: #999; font-size: 13px; text-align: right; }
+.content .title { color: #999; font-size: 12px; text-align: right; }
 
 .comment-container { margin: 20px 0; height: 100%;}
 .comment-container .title { font-size: 15px; font-weight: bold; color: #212121; text-align: left;}
- .list-item { margin-top: 20px;}
+ .list-item { margin-top: 16px;}
  .list-item .user-container { width: 100%; height: 32px;}
 .user-container .user { width: 27px; height: 27px; float: left; border-radius: 50%; }
-.user-container .nickname { float: left; color: #999; font-size: 14px; margin: 5px 0 0 12px;} 
+.user-container .nickname { float: left; color: #999; font-size: 14px; margin: 4px 0 0 12px;} 
 
-.list-item .comment-content { width: 100%; color: #212121; font-size: 14px; padding-left: 35px;}
+.list-item .comment-content { width: 100%; color: #212121; font-size: 14px; padding-left: 35px; margin-top: 4px}

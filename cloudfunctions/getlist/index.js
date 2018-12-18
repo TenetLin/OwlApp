@@ -29,12 +29,12 @@ exports.main = async (event, context) => {
 
   data[date] = data[date] || { ut: 0, datas: []}
   
-  //数据更新时间小于5min，直接从缓存中取值
-  if (Date.now() - data[date].ut < cache_data_timeout) {
+  // //数据更新时间小于5min，直接从缓存中取值
+  // if (Date.now() - data[date].ut < cache_data_timeout) {
 
-    return { ret: 0, msg: 'OK', data: data[date].data }
+  //   return { ret: 0, msg: 'OK', data: data[date].data }
 
-  }
+  // }
 
   return story_collection.where({ date }).orderBy('date_time', 'desc').get().then(async function (result) {
 

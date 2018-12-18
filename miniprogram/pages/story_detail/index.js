@@ -6,7 +6,8 @@ Page({
    */
   data: {
     date: moment().format('YYYY年MM月DD日'),
-    detail: {}
+    detail: {},
+    comment: [],
   },
 
   /**
