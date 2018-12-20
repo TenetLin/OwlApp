@@ -32,3 +32,12 @@
 .user-container .nickname { float: left; color: #999; font-size: 14px; margin: 4px 0 0 12px;} 
 
 .list-item .comment-content { width: 100%; color: #212121; font-size: 14px; padding-left: 35px; margin-top: 4px}
+
+.comment-bottom { position: relative;}
+.comment-input { background: #f4f4f4; font-size: 14px; padding: 4px 8px; border-radius: 4px;}
+.num-area { color: #002464; padding: 12px 0 8px;}
+
+.comment-bottom .btn { font-size: 12px; position: absolute; right: 0px; top:0px; z-index: 100; width: 30px; padding: 0px 3px; background: transparent;}
+.num-area image { width: 25px; height: 25px; float: left;}
+.num-area text { float: left;}
+.num-area view { float: left; width: 33%; height: 25px;}

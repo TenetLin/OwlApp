@@ -23,7 +23,7 @@ Page({
     }
 
     const that = this
-    const date =  moment().format('YYYYMMDD')
+    const date = '20181217' ||  moment().format('YYYYMMDD')
     
     wx.cloud.callFunction({
       // 需调用的云函数名

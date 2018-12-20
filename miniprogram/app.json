@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/story_detail/index",
     "pages/index/index",
     "pages/publish/index",
-    "pages/story_detail/index",
     "pages/myself/index",
     "pages/publish_end/index",
     "pages/login/index"
