@@ -87,4 +87,19 @@
       <view class='comment-content'>这首诗写得不错</view>
     </view>
   </view>
+  <view class='comment-bottom'>
+    <input class='comment-input' cursor-spacing='80' placeholder='我也说一句'></input>
+    <button class='btn'>发表</button>
+    <view class='num-area'>
+      <view class='comment'>
+        <text>回复(29)</text>
+      </view>
+      <view class='resonance'>
+        <text>共鸣(29)</text>
+      </view>
+      <view class='share'>
+        <text>分享</text>
+      </view>
+    </view>
+  </view>
 </view>
