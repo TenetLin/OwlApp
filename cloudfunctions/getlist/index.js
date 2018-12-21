@@ -28,19 +28,10 @@ exports.main = async (event, context) => {
   const { date } = event
 
   data[date] = data[date] || { ut: 0, datas: []}
-  
-  // //数据更新时间小于5min，直接从缓存中取值
-  // if (Date.now() - data[date].ut < cache_data_timeout) {
-
-  //   return { ret: 0, msg: 'OK', data: data[date].data }
-
-  // }
 
   return story_collection.where({ date }).orderBy('date_time', 'desc').get().then(async function (result) {
 
     console.log(`get by date suc, date=${date}`, result)
-
-    const f_id_urls = {}
 
     result.data = result.data || []
 
@@ -75,7 +66,7 @@ exports.main = async (event, context) => {
       _id: _.in(openids)
     }).get()
 
-    //用户信息查询成功
+    //用户信息查询失败
     if (user_ret.errMsg !== 'collection.get:ok') return result.data
 
     result.data = result.data.map(item => {

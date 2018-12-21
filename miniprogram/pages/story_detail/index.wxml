@@ -23,14 +23,14 @@
 
   <view class='comment-container'>
     <view class='title'>精彩评论</view>
-    <view class='list-item'>
+    <view class='list-item' wx:for='{{comments}}' wx:key='_id' wx:for-item='item' wx:for-index='idx'>
       <view class='user-container'>
-      <image class='user' src='/images/test_user.png'/>
-      <text class='nickname'>西窗夜雨</text>
+      <image class='user' src='{{item.avatarUrl}}'/>
+      <text class='nickname'>{{item.nickName}}</text>
       </view>
-      <view class='comment-content'>这首诗写得很好</view>
+      <view class='comment-content'>{{item.content}}</view>
     </view>
-    <view class='list-item'>
+    <view class='list-item' wx:if="{{comments.length < total}}" bindtap='more'>
       <view class='more'>
         <text>查看更多</text>
         <image class='right' src='/images/icon_arrow.png'></image>
@@ -38,16 +38,16 @@
     </view>
   </view>
   <view class='comment-bottom'>
-    <input class='comment-input' cursor-spacing='80' placeholder='我也说一句' bindinput='input'></input>
+    <input class='comment-input' type='text' cursor-spacing='80' placeholder='我也说一句' bindinput='input' value='{{user_comment}}' confirm-type='send '></input>
     <button class='btn' bindtap='submit'>发表</button>
     <view class='num-area'>
       <view class='comment'>
         <image src='/images/comment.png'/>
-        <text>回复(29)</text>
+        <text>回复({{total}})</text>
       </view>
       <view class='resonance'>
         <image src='/images/star.png'/>
-        <text>共鸣(29)</text>
+        <text>共鸣(0)</text>
       </view>
       <view class='share'>
         <image src='/images/share.png'/>

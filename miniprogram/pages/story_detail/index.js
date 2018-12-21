@@ -36,6 +36,9 @@ Page({
     }
     
     this.setData({ id })
+
+    this.get(id)
+
     wx.cloud.callFunction({
       // 需调用的云函数名
       name: 'detail',
@@ -45,6 +48,7 @@ Page({
         that.setData({
           detail: result
         })
+        that.save()
       },
       fail(error) {
         console.log('error', error)
@@ -64,16 +68,22 @@ Page({
 
     wx.cloud.callFunction({
       name: 'comment',
-      data: { type: 'get', data: { offset: 0, count: 10 }},
+      data: { type: 'get', data: { offset, count: 10, story_id: that.data.id }},
       success ({ errMsg, result}) {
         
-        console.log('', errMsg, result)
+        console.log('get comment list', errMsg, result)
         
-        result = result || { total: 0, data: [] }
+        result = result || { total: 0, list: [] }
 
         let comments = that.data.comments
-        comments = comments.concat(result.data)
-        that.setData({ total: result.total, comments })
+        
+        //通过_id进行过滤
+        const to_add = result.list.filter(item => !comments.some(({ _id }) => item._id === _id))
+
+        comments = comments.concat(to_add)
+        that.setData({ total: result.count, comments })
+
+        that.save()
       },
       fail (error) {
         console.log('error', error)
@@ -142,9 +152,12 @@ Page({
    * 文本框输入
    */
   input: function (e) {
+
     this.setData({
       user_comment: e.detail.value
     })
+
+    this.save()
   },
 
   /**
@@ -173,16 +186,21 @@ Page({
 
     wx.cloud.callFunction({
       name: 'comment',
-      data: { type: 'add', data: { content }},
+      data: { type: 'add', data: { content, story_id: that.data.id }},
       success ({ errMsg, result}) {
         
-        console.log('', errMsg, result)
-        
-        result = result || []
+        console.log('add comment', errMsg, result)
 
-        let comments = that.data.comments
-        comments = comments.concat(result)
-        that.setData({ comments })
+        if (result.ret === 0) { 
+
+          wx.showToast({ title: '评论成功' })
+
+          that.setData({
+            user_comment: ''
+          })
+          that.update_after_submit()
+        }
+        else  wx.showToast({ title: '提交失败' })
       },
       fail (error) {
         console.log('error', error)
@@ -190,7 +208,69 @@ Page({
       complete () {
 
         wx.hideLoading()
+        that.save()
       }
     })
+  },
+
+  /**
+   * 更新count数据
+   */
+  update_after_submit: function () {
+
+    //没有加载到底，只需要更新total即可
+    if (this.data.total > this.data.comments.length) this.update_count()
+    else this.getComment(this.data.comments.length)
+  },
+
+  //更新count数
+  update_count: function () {
+    const that = this
+    wx.cloud.callFunction({
+      name: 'comment',
+      data: { type: 'count', data: { story_id: that.data.id }},
+      success ({ errMsg, result}) {
+        
+        console.log('update_count', errMsg, result)
+        
+        if (result.ret === 0) {
+
+          that.setData({
+            total: result.total
+          })
+        }
+
+      },
+      fail (error) {
+        console.log('error', error)
+      }
+    })
+  },
+
+  //数据缓存
+  save: function () {
+    const key = this.data.id
+    const data = this.data
+    try {
+      wx.setStorageSync(key, JSON.stringify(data))
+    } catch (ex) {
+      console.log('get data to cache error, key=publish, ex=', ex)
+    }
+  },
+
+  //获取数据
+  get: function (id) {
+
+    if (!id) return
+
+    try {
+
+      const data = JSON.parse(wx.getStorageSync(id) || '{}')
+
+      this.setData(data)
+
+    } catch (ex) {
+      console.log('get data from cache error, key=list, ex=', ex)
+    }
   }
 })

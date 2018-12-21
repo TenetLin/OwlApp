@@ -8,11 +8,12 @@
 		"minified": true,
 		"newFeature": true,
 		"nodeModules": true,
-		"autoAudits": false
+		"autoAudits": false,
+		"uglifyFileName": false
 	},
 	"appid": "wx60c38530b526b496",
 	"projectname": "OwlApp",
-	"libVersion": "2.2.5",
+	"libVersion": "2.4.2",
 	"compileType": "miniprogram",
 	"condition": {
 		"search": {
