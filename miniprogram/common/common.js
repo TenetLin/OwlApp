@@ -117,7 +117,7 @@ function upload_files (files, type, cb, index) {
 function get_userinfo () {
   try {
     const data = JSON.parse(wx.getStorageSync('myself') || '{}')
-    return data;
+    return data
   } catch (ex) {
     console.log('get data from cache error, key=myself, ex=', ex)
   }

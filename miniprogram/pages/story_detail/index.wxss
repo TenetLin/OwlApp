@@ -18,9 +18,6 @@
 
 .content view { border-radius: 0 0 10px 10px }
 .content .more-container { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient( rgba(254,250,243,0), rgba(255,255,255,1))}
-.content .more {  padding: 20px;}
-.content .more text { font-size: 13px; color: #9B9B9B; text-align: center; margin: 0 auto; display: block;}
-.content .more image { transform:rotate(90deg); width: 5px; height: 10px;margin: 0 auto; display: block;}
 
 .content .title { color: #999; font-size: 12px; text-align: right; }
 
@@ -32,12 +29,29 @@
 .user-container .nickname { float: left; color: #999; font-size: 14px; margin: 4px 0 0 12px;} 
 
 .list-item .comment-content { width: 100%; color: #212121; font-size: 14px; padding-left: 35px; margin-top: 4px}
+.list-item .more { color:#999;font-size:12px;text-align:right; }
+.list-item .right { width: 16px; height: 16px; float: right; margin-right: 15px;}
 
 .comment-bottom { position: relative;}
 .comment-input { background: #f4f4f4; font-size: 14px; padding: 4px 8px; border-radius: 4px;}
+
+
 .num-area { color: #002464; padding: 12px 0 8px;}
 
-.comment-bottom .btn { font-size: 12px; position: absolute; right: 0px; top:0px; z-index: 100; width: 30px; padding: 0px 3px; background: transparent;}
-.num-area image { width: 25px; height: 25px; float: left;}
-.num-area text { float: left;}
-.num-area view { float: left; width: 33%; height: 25px;}
+.comment-bottom .btn { position: absolute; right: 0px; top:0px; z-index: 100; width: 30px; padding: 0px 3px; background: transparent; font-size: 12px;}
+.num-area image { width: 14px; height: 14px;}
+.num-area { font-size: 12px;}
+.num-area view { display: inline-block; }
+
+.num-area .comment { width: 45% }
+.num-area .resonance { width: 30%; text-align: center; }
+.num-area .share { width: 25% }
+
+.comment text { float: left; margin-left: 5px; }
+.comment image { float: left; }
+
+.resonance text { margin-left: 5px; float:left;}
+.resonance image { float:left;}
+
+.share image { float:right; }
+.share text { float: right; margin-right: 5px;}

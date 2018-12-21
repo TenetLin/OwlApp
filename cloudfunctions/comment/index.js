@@ -1,11 +1,10 @@
 //云函数入口文件
 const cloud = require('wx-server-sdk')
+cloud.init()
 const db = cloud.database()
-const story_collection = db.collection('owl_comment')
+const comment_collection = db.collection('owl_comment')
 const user_collection = db.collection('owl_user')
 const utils_collection = db.collection('owl_utils')
-
-cloud.init()
 
 // 云函数入口函数
 exports.main = async (event, context) => {
@@ -29,12 +28,20 @@ async function add(data, wxContext) {
 
   if (!data || !data.text) return { ret: -1, msg: 'invalid input' }
 
-  return utils_collection.doc('comment_id').then(res => {
+  return utils_collection.doc('comment_id').then(async res => {
 
     const { index } = res.data
 
-    
+    data._id = getSid(index)
 
+    return comment_collection.add(data)
+
+  }).then(result => {
+    console.log('insert suc', result)
+    return resolve({ ret: 0, msg: 'OK' })
+  }).catch(ex => {
+    console.log('insert error', ex)
+    return resolve({ ret: -100, msg: 'err' })
   })
 
 }
@@ -44,7 +51,7 @@ async function add(data, wxContext) {
  * @param {Object} data 
  */
 async function getlist (data, wxContext) {
-
+  
 }
 
 

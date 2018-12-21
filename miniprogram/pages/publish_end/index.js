@@ -36,10 +36,10 @@ Page({
     wx.navigateBack({
       delta: 1,
       success: function (e) {
-        console.log('back suc', e);
+        console.log('back suc', e)
       },
       fail: function (e) {
-        console.log('back err', e);
+        console.log('back err', e)
       }
     })
   },

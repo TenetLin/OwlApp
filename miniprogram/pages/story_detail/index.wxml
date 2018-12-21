@@ -31,73 +31,26 @@
       <view class='comment-content'>这首诗写得很好</view>
     </view>
     <view class='list-item'>
-      <view class='user-container'>
-      <image class='user' src='/images/test_user.png'/>
-      <text class='nickname'>西窗夜雨</text>
+      <view class='more'>
+        <text>查看更多</text>
+        <image class='right' src='/images/icon_arrow.png'></image>
       </view>
-      <view class='comment-content'>这首诗写得不错</view>
-    </view>
-    <view class='list-item'>
-      <view class='user-container'>
-      <image class='user' src='/images/test_user.png'/>
-      <text class='nickname'>西窗夜雨</text>
-      </view>
-      <view class='comment-content'>这首诗写得不错</view>
-    </view>
-    <view class='list-item'>
-      <view class='user-container'>
-      <image class='user' src='/images/test_user.png'/>
-      <text class='nickname'>西窗夜雨</text>
-      </view>
-      <view class='comment-content'>这首诗写得不错</view>
-    </view>
-    <view class='list-item'>
-      <view class='user-container'>
-      <image class='user' src='/images/test_user.png'/>
-      <text class='nickname'>西窗夜雨</text>
-      </view>
-      <view class='comment-content'>这首诗写得不错</view>
-    </view>
-    <view class='list-item'>
-      <view class='user-container'>
-      <image class='user' src='/images/test_user.png'/>
-      <text class='nickname'>西窗夜雨</text>
-      </view>
-      <view class='comment-content'>这首诗写得不错</view>
-    </view>
-    <view class='list-item'>
-      <view class='user-container'>
-      <image class='user' src='/images/test_user.png'/>
-      <text class='nickname'>西窗夜雨</text>
-      </view>
-      <view class='comment-content'>这首诗写得不错</view>
-    </view>
-    <view class='list-item'>
-      <view class='user-container'>
-      <image class='user' src='/images/test_user.png'/>
-      <text class='nickname'>西窗夜雨</text>
-      </view>
-      <view class='comment-content'>这首诗写得不错</view>
-    </view>
-    <view class='list-item'>
-      <view class='user-container'>
-      <image class='user' src='/images/test_user.png'/>
-      <text class='nickname'>西窗夜雨</text>
-      </view>
-      <view class='comment-content'>这首诗写得不错</view>
     </view>
   </view>
   <view class='comment-bottom'>
-    <input class='comment-input' cursor-spacing='80' placeholder='我也说一句'></input>
-    <button class='btn'>发表</button>
+    <input class='comment-input' cursor-spacing='80' placeholder='我也说一句' bindinput='input'></input>
+    <button class='btn' bindtap='submit'>发表</button>
     <view class='num-area'>
       <view class='comment'>
+        <image src='/images/comment.png'/>
         <text>回复(29)</text>
       </view>
       <view class='resonance'>
+        <image src='/images/star.png'/>
         <text>共鸣(29)</text>
       </view>
       <view class='share'>
+        <image src='/images/share.png'/>
         <text>分享</text>
       </view>
     </view>

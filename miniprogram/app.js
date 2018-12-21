@@ -1,5 +1,5 @@
 'use strict'
-const { goToLogin } = require('./common/common.js');
+const { goToLogin } = require('./common/common.js')
 
 App({
 
@@ -23,7 +23,7 @@ App({
           success({ errMsg, result }) {
             console.log('user_info', arguments)
             if (result.ret !== 1) {
-              goToLogin();
+              goToLogin()
             } else {
               try {
                 wx.setStorageSync('myself', JSON.stringify(result.data))
@@ -53,7 +53,7 @@ App({
                   console.log('code success', errMsg, result)
                   //用户尚未激活
                   if (result.ret === 0) {
-                    goToLogin();
+                    goToLogin()
                   }
                 },
                 fail() {
