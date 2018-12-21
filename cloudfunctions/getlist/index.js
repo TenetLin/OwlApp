@@ -8,26 +8,12 @@ const _ = db.command
 
 //临时文件访问链接
 const tem_url_timeout = 24 * 3600 * 1e3
-//缓存数据过期时间
-const cache_data_timeout = 0 * 60 * 1e3
 
-const data = {
-  '20181207': {
-    ut: 0,
-    datas: []
-  },
-  '20181206': {
-    ut: 0,
-    datas: []
-  }
-}
 
 // 云函数入口函数
 exports.main = async (event, context) => {
 
   const { date } = event
-
-  data[date] = data[date] || { ut: 0, datas: []}
 
   return story_collection.where({ date }).orderBy('date_time', 'desc').get().then(async function (result) {
 
@@ -50,12 +36,9 @@ exports.main = async (event, context) => {
       openids.add(item.userInfo.openId)
     }
 
-    data[date].ut = Date.now()
-    data[date].datas = result.data
-
     openids = Array.from(openids)
 
-    console.log('cache date=', JSON.stringify(data), 'user openid=', openids)
+    console.log('user openid=', openids)
 
     const user_ret = await user_collection.field({
       _id: true,
