@@ -45,9 +45,9 @@
         <image src='/images/comment.png'/>
         <text>回复({{total}})</text>
       </view>
-      <view class='resonance'>
+      <view class='resonance' bindtap='star' data-isstar='{{is_star}}'>
         <image src='/images/star.png'/>
-        <text>共鸣(0)</text>
+        <text>共鸣({{star_count}})</text>
       </view>
       <view class='share'>
         <image src='/images/share.png'/>

@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    resonanceNum: 0,
+    starNum: 0,
     attentionNum: 0,
     fansNum: 0
   },
@@ -17,9 +17,9 @@ Page({
     try {
       const data = JSON.parse(wx.getStorageSync('myself') || '{}')
       this.setData({
-        resonanceNum: data.resonanceNum || 0,
-        attentionNum  : data.attentionNum || 0,
-        fansNum         : data.fansNum || 0
+        starNum     : data.starNum || 0,
+        attentionNum: data.attentionNum || 0,
+        fansNum     : data.fansNum || 0
       })
     } catch (ex) {
       console.log('get data from cache error, key=myself, ex=', ex)

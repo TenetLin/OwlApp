@@ -7,7 +7,7 @@
 </view>
 <view class='his-data'>
     <view class='item left'>
-      <view class='data'>{{resonanceNum}}</view>
+      <view class='data'>{{starNum}}</view>
       <view>共鸣</view>
     </view>
     <view class='item mid'>

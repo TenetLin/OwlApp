@@ -16,8 +16,15 @@ Page({
     current_index: 0,
     //总数
     total: 0,
+    //点赞数量
+    star_count: 0,
+    //当前用户是否点赞
+    is_star: false,
     //用户的评论内容
     user_comment: '',
+  
+    //点赞
+    _timeout_star: 0,
   },
 
   /**
@@ -73,7 +80,7 @@ Page({
         
         console.log('get comment list', errMsg, result)
         
-        result = result || { total: 0, list: [] }
+        result = result || { total: 0, list: [], is_star: false, star_count: 0 }
 
         let comments = that.data.comments
         
@@ -81,7 +88,7 @@ Page({
         const to_add = result.list.filter(item => !comments.some(({ _id }) => item._id === _id))
 
         comments = comments.concat(to_add)
-        that.setData({ total: result.count, comments })
+        that.setData({ total: result.count, comments, is_star: result.is_star, star_count: result.star_count })
 
         that.save()
       },
@@ -158,6 +165,54 @@ Page({
     })
 
     this.save()
+  },
+
+  /**
+   * 点赞
+   * @param {Object} 
+   */
+  star: function (e) {
+
+    let star_count = this.data.star_count
+    let is_star = this.data.is_star
+    let type = ''
+
+    //已经点赞过
+    if (is_star)  { 
+      star_count--
+      type = 'unstar'
+    } else {
+      star_count ++
+      type = 'star'
+    } 
+
+    is_star = !is_star
+
+    this.setData({ star_count, is_star })
+
+
+    //延时处理
+    if (this.data._timeout_star) clearTimeout(this.data._timeout_star)
+
+    const that = this
+
+    const time_out = setTimeout(function () {
+
+      wx.cloud.callFunction({
+        name: 'comment',
+        data: { type, data: { story_id: that.data.id }},
+        success ({ errMsg, result}) {
+
+          console.log('set star result errMsg', errMsg, result)
+
+          if (result && result.ret === 0) {
+            that.setData({
+              star_count: result.total || 0
+            })
+          }
+        }
+      })
+    }, 500)
   },
 
   /**
