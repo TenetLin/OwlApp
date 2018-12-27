@@ -170,10 +170,14 @@ Page({
       user_info.fansNum --
 
       if (user_info.fansNum < 0) user_info.fansNum = 0
+
+      wx.showToast({ title: '已取消' })
+
     } else {
 
       user_info.fansNum ++
 
+      wx.showToast({ title: '已关注' })
     }
 
     this.follow(this.data.uid, type)
