@@ -5,24 +5,21 @@
   <text class='weather-text'>多云</text>
 </view>
 
-<view class='content-container'>
-  <navigator class='content' wx:for='{{list}}' wx:key='_id' wx:for-item='item' wx:for-index='idx' hover-class='item_hover' url='/pages/story_detail/index?id={{item._id}}'>
-    <view class='header'>
-      <image class='owner-icon' src='{{item.userInfo.avatarUrl}}'/>
-      <text class='owner-text'>{{item.userInfo.nickName}}</text>
-      <view wx:if='{{item.checked}}' class='tag'>原创</view>
-      <!--<text class='text-date'>1小时以前</text>-->
-    </view>
-    <view class='text'>
-      <view>{{item.start_text}}</view>
-      <image class='image' mode='aspectFit' wx:for='{{item.start_images}}' wx:for-item='image' wx:key='fileID' src='{{image.tempFileURL}}'></image>
-    </view>
-    <view class='more-container'>
+<view class='content' wx:for='{{list}}' wx:key='_id' wx:for-item='item' wx:for-index='idx' hover-class='item_hover'>
+  <view class='header'>
+    <image class='owner-icon' src='{{item.userInfo.avatarUrl}}' data-uid='{{item.userInfo.uid}}' bindtap='goUser'/>
+    <text class='owner-text' data-uid='{{item.userInfo.uid}}' bindtap='goUser'>{{item.userInfo.nickName}}</text>
+    <view wx:if='{{item.checked}}' class='tag'>原创</view>
+    <!--<text class='text-date'>1小时以前</text>-->
+  </view>
+  <view class='text' data-id='{{item._id}}' bindtap='goDetail'>
+    <view>{{item.start_text}}</view>
+    <image class='image' mode='aspectFit' wx:for='{{item.start_images}}' wx:for-item='image' wx:key='fileID' src='{{image.tempFileURL}}'></image>
+  </view>
+  <view class='more-container' data-id='{{item._id}}' bindtap='goDetail'>
     <view class='more'>
       <text>查看更多</text>
       <image src='/images/arrow3.png'/>
-      </view> 
-    </view>
-    
-  </navigator>
+    </view> 
+  </view>
 </view>

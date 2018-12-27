@@ -4,7 +4,7 @@
     "pages/story_detail/index",
     "pages/publish/index",
     "pages/myself/index",
-    "pages/publish_end/index",
+    "pages/user_detail/index",
     "pages/login/index"
   ],
   "tabBar": {

@@ -98,5 +98,28 @@ Page({
     } catch (ex) {
       console.log('get data to cache error, key=list, ex=', ex)
     }
+  },
+
+  //跳转到用户页面
+  goUser: function (e) {
+
+    console.log('start go user', e)
+
+    const { uid } = e.currentTarget.dataset
+
+    wx.navigateTo({
+      url: `../user_detail/index?uid=${uid}`
+    })
+  },
+
+  //跳转到详情页面
+  goDetail: function (e) {
+    console.log('start go detail', e)
+
+    const { id } = e.currentTarget.dataset
+
+    wx.navigateTo({
+      url: `../story_detail/index?id=${id}`
+    })
   }
 })

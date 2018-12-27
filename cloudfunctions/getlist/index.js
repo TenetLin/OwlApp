@@ -13,9 +13,17 @@ const tem_url_timeout = 24 * 3600 * 1e3
 // 云函数入口函数
 exports.main = async (event, context) => {
 
-  const { date } = event
+  const { date, uid } = event
 
-  return story_collection.where({ date }).orderBy('date_time', 'desc').get().then(async function (result) {
+  let data_promise = null
+
+  //支持按照日期查询
+  if (date) data_promise = story_collection.where({ date }).orderBy('date_time', 'desc').get()
+
+  //支持按照用户查询
+  else      data_promise = story_collection.where({ uid }).orderBy('date_time', 'desc').get()
+
+  return data_promise.then(async function (result) {
 
     console.log(`get by date suc, date=${date}`, result)
 
