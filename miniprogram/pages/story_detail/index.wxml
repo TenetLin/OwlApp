@@ -49,10 +49,11 @@
         <image src='{{is_star? "/images/star.png": "/images/unstar.png"}}'/>
         <text>共鸣({{star_count}})</text>
       </view>
-      <view class='share'>
+      <button class='share' open-type='share'>
+        <text >分享</text>
         <image src='/images/share.png'/>
-        <text>分享</text>
-      </view>
+        
+      </button>
     </view>
   </view>
 </view>
