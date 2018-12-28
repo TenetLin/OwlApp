@@ -21,7 +21,7 @@ App({
           // 需调用的云函数名
           name: 'user_info',
           success({ errMsg, result }) {
-            console.log('user_info', arguments)
+            console.log('user_info', errMsg, result)
             if (result.ret !== 1) {
               goToLogin()
             } else {
