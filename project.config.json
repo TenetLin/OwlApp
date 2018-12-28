@@ -11,9 +11,9 @@
 		"autoAudits": false,
 		"uglifyFileName": false
 	},
-	"appid": "wx60c38530b526b496",
+	"appid": "wxf62677b14a3c2734",
 	"projectname": "OwlApp",
-	"libVersion": "2.4.2",
+	"libVersion": "2.4.3",
 	"compileType": "miniprogram",
 	"condition": {
 		"search": {

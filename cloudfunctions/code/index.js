@@ -1,7 +1,7 @@
 // 云函数入口文件
 const cloud = require('wx-server-sdk')
 const fetch = require('node-fetch')
-const url = 'https://api.weixin.qq.com/sns/jscode2session?appid=wx60c38530b526b496&secret=7fb477c6ad0e97ed57e3cd5a55832451&js_code=JSCODE&grant_type=authorization_code'
+const url = 'https://api.weixin.qq.com/sns/jscode2session?appid=wxf62677b14a3c2734&secret=2ab490cdab5f0a8ce3e29225561b8d21&js_code=JSCODE&grant_type=authorization_code'
 cloud.init()
 const db = cloud.database()
 const collection = db.collection('owl_user')
