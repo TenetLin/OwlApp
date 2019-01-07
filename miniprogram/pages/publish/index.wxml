@@ -1,6 +1,6 @@
-<input class='title' type='text' placeholder='小主人，先写个标题吧' bindinput='input' id='title' value='{{title}}'></input>
+<input class='title' type='text' placeholder='好的标题会让你的故事更吸引人（可选）' bindinput='input' id='title' value='{{title}}'></input>
 <view class='story-content' >
-  <textarea class='textarea' placeholder='先写故事开头吧～' cursor-spacing='140'  bindinput='input' id='start_text'  value='{{start_text}}' />
+  <textarea class='textarea' placeholder='你的故事当然有一个引人入胜的开头~' cursor-spacing='140'  bindinput='input' id='start_text'  value='{{start_text}}' />
 
   <view class='image-container' wx:for='{{start_images}}' wx:for-item='item' wx:for-index='idx' wx:key='store_src'>
     <image class='upload' src='{{item.store_src}}'></image>
@@ -11,7 +11,7 @@
   </view>
 </view>
 <view class='story-content' >
-  <textarea class='textarea' placeholder='接下来写故事结尾吧～' cursor-spacing='440' id='end_text'  bindinput='input' value='{{end_text}}' />
+  <textarea class='textarea' placeholder='你的故事一定有一个意料之外情理之中的结尾～' cursor-spacing='440' id='end_text'  bindinput='input' value='{{end_text}}' />
   <view class='image-container' wx:for='{{end_images}}' wx:key='store_src' wx:for-item='item' wx:for-index='idx'>
     <image class='upload' src='{{item.store_src}}'></image>
     <image class='close' src='/images/image_close.png' data-index='{{idx}}' data-type='end' bindtap='delImage'></image>
