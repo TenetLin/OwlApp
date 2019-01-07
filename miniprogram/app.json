@@ -7,32 +7,25 @@
     "pages/user_detail/index",
     "pages/login/index"
   ],
-  "tabBar": {
-    "color": "#a5a5a5",
-    "selectedColor": "#EF7F21",
-    "backgroundColor": "#fff",
-    "borderStyle": "black",
-    "list": [
-      {
-        "pagePath": "pages/index/index",
-        "iconPath": "images/index_default.png",
-        "selectedIconPath": "images/index_select.png",
-        "text": "主页"
-      },
-      {
-        "pagePath": "pages/publish/index",
-        "iconPath": "images/plus.png",
-        "selectedIconPath": "images/plus_select.png",
-        "text": "发布"
-      },
-      {
-        "pagePath": "pages/myself/index",
-        "iconPath": "images/my_default.png",
-        "selectedIconPath": "images/my_select.png",
-        "text": "我的"
-      }
-    ]
-  },
+ "tabBar": {
+  "backgroundColor": "#ffffff",
+  "color": "#979795",
+  "selectedColor": "#1c1c1b",
+  "list": [
+    {
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath": "tabbarComponent/icon/icon_home.png",
+      "selectedIconPath": "tabbarComponent/icon/icon_home_HL.png"
+    },
+    {
+      "pagePath": "pages/myself/index",
+      "text": "我的",
+      "iconPath": "tabbarComponent/icon/icon_mine.png",
+      "selectedIconPath": "tabbarComponent/icon/icon_mine_HL.png"
+    }
+  ]
+},
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#213C5C",

@@ -1,11 +1,12 @@
 const moment = require('../../common/moment.min.js')
-
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    tabbar: {},
     date: moment().format('YYYY年MM月DD日'),
     list: []
   },
@@ -14,7 +15,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    app.editTabbar();
     try {
       const data = JSON.parse(wx.getStorageSync('list') || '{}')
       this.setData(data)
@@ -24,7 +25,6 @@ Page({
 
     const that = this
     const date = moment().format('YYYYMMDD')
-    
     wx.cloud.callFunction({
       // 需调用的云函数名
       name: 'getlist',
