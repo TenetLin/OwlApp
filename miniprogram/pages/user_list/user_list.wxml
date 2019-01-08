@@ -1,0 +1,8 @@
+<!--miniprogram/pages/user_list/user_list.wxml-->
+<view wx:for="{{list}}" style="width:100%">
+  <view class='cell'>
+    <image class='avatar' src='{{item.avatarUrl}}'></image>
+    <label class="uname">{{item.nickName}}</label>
+    <button class='btn' bindtap='attation'>{{item.followed ? '已关注': '关注'}}</button>
+    </view>
+  </view>

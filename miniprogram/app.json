@@ -5,7 +5,8 @@
     "pages/publish/index",
     "pages/myself/index",
     "pages/user_detail/index",
-    "pages/login/index"
+    "pages/login/index",
+    "pages/user_list/user_list"
   ],
  "tabBar": {
   "backgroundColor": "#ffffff",

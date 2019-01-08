@@ -10,11 +10,11 @@
       <view class='data'>{{starNum}}</view>
       <view>共鸣</view>
     </view>
-    <view class='item mid'>
+    <view class='item mid' data-uid='{{item.userinfo.uid}}' data-title='关注' bindtap='goUser' bindtap='goUser' id='guanzhu'>
       <view class='data'>{{attentionNum}}</view>
       <view>关注</view>
     </view>
-    <view class='item right'>
+    <view class='item right' data-uid='{{item.userinfo.uid}}' data-title='粉丝' bindtap='goUser' id='fensi'>
         <view class='data'>{{fansNum}}</view>
         <view>粉丝</view>
     </view>

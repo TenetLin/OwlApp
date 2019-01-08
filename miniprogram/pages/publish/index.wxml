@@ -20,7 +20,7 @@
     <image class='add' src='/images/add_image.png'></image>
   </view>
 </view>
-<view class='footer'>
+<view class='footer'> 
   <view class='radio {{checked ? "checked": ""}}' bindtap='tapRadio'>
     <image class='image'></image>
     <text class='text'>原创</text>

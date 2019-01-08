@@ -91,5 +91,17 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+  //跳转到用户页面
+  goUser: function (e) {
+
+    console.log('start go user', e)
+
+    const { uid } = e.currentTarget.dataset
+    var {title} = e.currentTarget.dataset.title
+
+    wx.navigateTo({
+      url: '../user_list/user_list?uid=${uid}&title=${title}'
+    })
+  },
 })
