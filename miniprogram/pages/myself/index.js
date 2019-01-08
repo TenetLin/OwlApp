@@ -115,4 +115,13 @@ Page({
       url: `../story_list/story_list?uid=${uid}`
     })
   },
+  goAbout: function (e) {
+
+    console.log('start go mystory', e)
+
+
+    wx.navigateTo({
+      url: `../About/About`
+    })
+  },
 })

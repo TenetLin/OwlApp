@@ -7,7 +7,8 @@
     "pages/user_detail/index",
     "pages/login/index",
     "pages/user_list/user_list",
-    "pages/story_list/story_list"
+    "pages/story_list/story_list",
+    "pages/About/About"
   ],
   "tabBar": {
     "backgroundColor": "#ffffff",
