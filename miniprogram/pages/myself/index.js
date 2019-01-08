@@ -101,7 +101,18 @@ Page({
     var {title} = e.currentTarget.dataset.title
 
     wx.navigateTo({
-      url: '../user_list/user_list?uid=${uid}&title=${title}'
+      url: `../user_list/user_list?uid=${uid}&title=${title}`
+    })
+  },
+  //跳转到我的故事界面
+  goMyStorys: function (e) {
+
+    console.log('start go mystory', e)
+
+    const { uid } = e.currentTarget.dataset
+
+    wx.navigateTo({
+      url: `../story_list/story_list?uid=${uid}`
     })
   },
 })

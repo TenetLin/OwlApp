@@ -20,7 +20,7 @@
     </view>
   </view>
 <view class='menu'>
-  <view class='item' hover-class='item_hover'><text>我的故事</text><image class='right' src='/images/icon_arrow.png'></image></view>
+  <view class='item' bindtap='goMyStorys' hover-class='item_hover'><text>我的故事</text><image class='right' src='/images/icon_arrow.png'></image></view>
   <!-- <view class='item' hover-class='item_hover'><text>我的共鸣</text><image class='right' src='/images/icon_arrow.png'></image></view>
   <view class='item' hover-class='item_hover'><text>我的关注</text><image class='right' src='/images/icon_arrow.png'></image></view>
   <view class='item' hover-class='item_hover'><text>我的粉丝</text><image class='right' src='/images/icon_arrow.png'></image></view> -->
