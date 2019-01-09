@@ -1,10 +1,5 @@
-<view class='header'>
-  <!-- <image class='user' src='/images/user3.png'/> -->
-  <open-data type='userAvatarUrl' class='user'></open-data>
-  <text class='date'>{{date}}</text>
-  <image class='weather-icon' src='/images/weather3.png'/>
-  <text class='weather-text'>多云</text>
-</view>
+<navbar title="{{true}}" back="{{true}}" text="{{navigationBarTitle}}"></navbar>
+<view class='main' style="{{'top:' + navigationBarHeight}}">
 
 <view class='content'>
   <view class='header'>
@@ -56,4 +51,5 @@
       </button>
     </view>
   </view>
+</view>
 </view>

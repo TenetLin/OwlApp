@@ -1,4 +1,5 @@
 const moment = require('../../common/moment.min.js')
+const navigationBarHeight = (getApp().statusBarHeight + 44) + 'px';
 Page({
 
   /**
@@ -25,6 +26,8 @@ Page({
   
     //点赞
     _timeout_star: 0,
+    navigationBarHeight 
+    
   },
 
   /**

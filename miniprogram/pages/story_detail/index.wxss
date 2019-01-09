@@ -1,9 +1,8 @@
 /* miniprogram/pages/story_detail/index.wxss */page { background-color: #213C5C; font-family: PingFangSC-Regular; }
-.header { height: 22px; margin: 0 10px 10px;  font-size: 16px;color: #ECEDFB;}
-.user { width: 22px; height: 22px; float: left; border-radius: 50%;overflow: hidden}
-.date { height: 22px;  float: left; line-height: 22px; margin-left: 5px;}
-.weather-text { height: 22px; float: right;margin-right: 5px;}
-.weather-icon { width: 17px; height: 14px; float: right; margin-top: 4px;}
+.main {
+  position: absolute;
+  width: 100%
+}
 
 .item_hover{background-color: rgba(0, 0, 0, 0.1);}
 
