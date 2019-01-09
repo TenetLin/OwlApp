@@ -1,3 +1,5 @@
+<navbar title="{{titles}}" text="{{navigationBarTitle}}"></navbar>
+<view class='main' style="{{'top:' + navigationBarHeight}}">
 <view class='user-container'>
   <view class='userinfo'>
     <open-data type='userAvatarUrl' class='avatar'></open-data>
@@ -27,4 +29,5 @@
   <view class='item' hover-class='item_hover'><text>我的消息</text><image class='right' src='/images/icon_arrow.png'></image></view>
   <view class='item' bindtap='goAbout' hover-class='item_hover'>关于</view>
    <tabbar tabbar="{{tabbar}}"></tabbar>
+</view>
 </view>

@@ -1,0 +1,18 @@
+<!--navigationBar/navigation.wxml-->
+<view class="navbar" style="{{'height: ' + navigationBarHeight}}">
+  <view style="{{'height: ' + statusBarHeight}}"></view>
+    <view class='page-header '>
+      <text class='date' wx:if="{{weather==true}}">{{date}}</text>
+      <image class='weather-icon' wx:if="{{weather==true}}" src='/images/weather3.png'/>
+      <text class='weather-text' wx:if="{{weather==true}}">多云</text>
+              <view class='capsule' wx:if="{{ back==true || home==true }}">
+          <view bindtap='back' wx:if="{{back==true}}">
+            <image src='img/back.svg'></image>            
+           </view>
+          <view bindtap='backHome' wx:if="{{home==true}}">
+            <image src='img/home.svg'></image>
+          </view>
+        </view>
+        <view class='title' wx:if="{{title}}">{{text}}</view>
+  </view>
+</view>

@@ -33,7 +33,8 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#213C5C",
     "navigationBarTitleText": "夜飞鹊",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "white",
+    "navigationStyle": "custom"
   },
   "debug": true
 }

@@ -1,4 +1,6 @@
 <!--miniprogram/pages/user_list/user_list.wxml-->
+<navbar title="{{true}}" back="{{true}}" text="{{navigationBarTitle}}"></navbar>
+<view class='main' style="{{'top:' + navigationBarHeight}}">
 <view wx:for="{{list}}" style="width:100%">
   <view class='cell'>
     <image class='avatar' src='{{item.avatarUrl}}'></image>
@@ -6,3 +8,4 @@
     <button class='btn' bindtap='attation'>{{item.followed ? '已关注': '关注'}}</button>
     </view>
   </view>
+</view>

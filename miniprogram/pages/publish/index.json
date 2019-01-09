@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "发布故事"
+  "navigationBarTitleText": "发布故事",
+  "usingComponents": {
+        "navbar": "../../navigationBar/navigation"
+    }
 }

@@ -1,3 +1,5 @@
+<navbar title="{{true}}" back="{{true}}" text="{{navigationBarTitle}}"></navbar>
+<view class='main' style="{{'top:' + navigationBarHeight}}">
 <input class='title' type='text' placeholder='好的标题会让你的故事更吸引人（可选）' bindinput='input' id='title' value='{{title}}'></input>
 <view class='story-content' >
   <textarea class='textarea' placeholder='你的故事当然有一个引人入胜的开头~' cursor-spacing='140'  bindinput='input' id='start_text'  value='{{start_text}}' />
@@ -26,4 +28,5 @@
     <text class='text'>原创</text>
   </view>
 <button class='btn' bindtap='submit'>发布</button>
+</view>
 </view>

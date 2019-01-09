@@ -9,7 +9,8 @@ App({
   onLaunch: function () {
     wx.hideTabBar();
     this.getSystemInfo();
-    this.Login()
+    this.Login();
+    statusBarHeight: 0
   },
   /**
    * 登录
@@ -93,6 +94,7 @@ App({
     let t = this;
     wx.getSystemInfo({
       success: function (res) {
+        t.statusBarHeight = res.statusBarHeight
         t.globalData.systemInfo = res;
       }
     });
@@ -117,6 +119,10 @@ App({
     _this.setData({
       tabbar: tabbar
     });
+  },
+  editNavBar:function()
+  {
+   // let navbar = this.globalData.navbar;
   },
   globalData: {
     systemInfo: null,//客户端设备信息

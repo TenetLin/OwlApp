@@ -1,4 +1,5 @@
 // miniprogram/pages/publish_ender/index.js
+const navigationBarHeight = (getApp().statusBarHeight + 44) + 'px';
 Page({
 
   /**
@@ -9,7 +10,8 @@ Page({
     uid       : '',     //用户名
     user_info : {},     //用户信息
     list      : [],     //信息列表,
-    followed  : false
+    followed  : false,
+    navigationBarHeight
   },
 
   /**

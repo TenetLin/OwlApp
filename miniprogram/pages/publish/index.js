@@ -1,4 +1,5 @@
 const { save_files, upload_files, get_userinfo, remove_files } = require('../../common/common.js')
+const navigationBarHeight = (getApp().statusBarHeight + 44) + 'px';
 wx.cloud.init()
 Page({
 
@@ -14,6 +15,8 @@ Page({
     end_text: '',
     end_images: [],
     index: 0,
+    navigationBarTitle: '发布',
+    navigationBarHeight
   },
 
   /**

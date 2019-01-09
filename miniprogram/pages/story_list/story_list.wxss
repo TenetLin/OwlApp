@@ -1,4 +1,8 @@
 /* miniprogram/pages/story_list/story_list.wxss */
+.main {
+  position: absolute;
+  width: 100%
+}
 .content { display: block; margin: 0 0 5px; background-color:#fff; padding: 20px 20px 30px; position: relative;}
 .content .header { display: block; height: 27px; margin: 0; color: #fff;}
 .content .header .tag { background-color: #5B94DC; float: left; font-size: 13px; padding: 2px 7px; border-radius: 5px; margin-top: 2px;}

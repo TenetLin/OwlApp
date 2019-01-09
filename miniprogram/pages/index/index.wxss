@@ -1,10 +1,9 @@
 page { background-color: #213C5C; font-family: PingFangSC-Regular; }
-.page-header { height: 22px; margin: 0 10px 10px;  font-size: 16px; color: #ECEDFB;}
-.user { width: 22px; height: 22px; float: left; border-radius: 50%;overflow: hidden}
-.date { height: 22px;  float: left; line-height: 22px; margin-left: 5px;}
-.weather-text { height: 22px; float: right;margin-right: 5px;}
-.weather-icon { width: 17px; height: 14px; float: right; margin-top: 4px;}
-
+.main {
+  position: absolute;
+  width: 100%
+}
+/* .page-header { height: 22px; margin: 0 10px 10px;  font-size: 16px; color: #ECEDFB;} */
 .item_hover{background-color: rgba(0, 0, 0, 0.1); }
 
 .content { display: block; margin: 0 10px 10px; background-color:#fff; border-radius: 10px; padding: 20px 20px 30px; position: relative;}

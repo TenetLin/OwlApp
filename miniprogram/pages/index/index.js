@@ -1,5 +1,6 @@
-const moment = require('../../common/moment.min.js')
+const moment = require('../../common/moment.min.js');
 const app = getApp();
+const navigationBarHeight = (app.statusBarHeight + 44) + 'px';
 Page({
 
   /**
@@ -8,7 +9,11 @@ Page({
   data: {
     tabbar: {},
     date: moment().format('YYYY年MM月DD日'),
-    list: []
+    list: [],
+    navigationBarTitle: '主页',
+    navigationBarHeight,
+    titles:true,
+    weathers:true
   },
 
   /**

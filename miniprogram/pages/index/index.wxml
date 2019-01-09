@@ -1,11 +1,11 @@
-
-<view class='page-header '>
+<navbar date="{{date}}" weather="{{weathers}}"></navbar>
+<view class='main' style="{{'top:' + navigationBarHeight}}">
+<!-- <view class='page-header '>
   <open-data type='userAvatarUrl' class='user'></open-data>
   <text class='date'>{{date}}</text>
   <image class='weather-icon' src='/images/weather3.png'/>
   <text class='weather-text'>多云</text>
-</view>
-
+</view> -->
 <view class='content' wx:for='{{list}}' wx:key='_id' wx:for-item='item' wx:for-index='idx' hover-class='item_hover'>
   <view class='header'>
     <image class='owner-icon' src='{{item.userInfo.avatarUrl}}' data-uid='{{item.userInfo.uid}}' bindtap='goUser'/>
@@ -26,4 +26,5 @@
 </view>
 <view class='container'>
  <tabbar tabbar="{{tabbar}}"></tabbar>
+</view>
 </view>

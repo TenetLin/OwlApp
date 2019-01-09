@@ -1,0 +1,5 @@
+{
+  "navigationBarTitleText": "关于夜飞鹊",
+  "usingComponents": {
+    "navbar": "../../navigationBar/navigation"}
+}

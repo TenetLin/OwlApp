@@ -19,12 +19,6 @@ Component({
             "text": "首页"
           },
           {
-            "pagePath": "pages/publish/index",
-            "iconPath": "icon/icon_release.png",
-            "isSpecial": true,
-            "text": "发布"
-          },
-          {
             "pagePath": "pages/myself/index",
             "iconPath": "icon/icon_mine.png",
             "selectedIconPath": "icon/icon_mine_HL.png",

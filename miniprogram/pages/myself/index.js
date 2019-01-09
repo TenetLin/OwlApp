@@ -1,5 +1,6 @@
 // pages/myself/index.js
 const app = getApp();
+const navigationBarHeight = (app.statusBarHeight + 44) + 'px';
 Page({
 
   /**
@@ -8,7 +9,10 @@ Page({
   data: {
     starNum: 0,
     attentionNum: 0,
-    fansNum: 0
+    fansNum: 0,
+    navigationBarTitle: '我的',
+    navigationBarHeight,
+    titles:true,
   },
 
   /**

@@ -1,12 +1,11 @@
-// miniprogram/pages/user_list/user_list.js
-const navigationBarHeight = (getApp().statusBarHeight + 44) + 'px';
+// miniprogram/pages/About/About.js
+const navigationBarHeight = (getApp().statusBarHeight + 44) + 'px'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    list : [],  //这就是信息列表咯
     navigationBarHeight
   },
 
@@ -14,16 +13,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.setNavigationBarTitle({
-      title: options.title,
-    })
-    var that = this
-
-    that.setData({
-      list: [{
-        avatarUrl: 'https://img1.doubanio.com/icon/u1374060-749.jpg', nickName: '测试1',followed:true
-      }, { avatarUrl: 'https://img1.doubanio.com/icon/u1374060-749.jpg', nickName: '测试2', followed: false }, { avatarUrl: 'https://img1.doubanio.com/icon/u1374060-749.jpg', nickName: '测试3', followed: false }],
-    });
 
   },
 
@@ -74,5 +63,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
+  }
 })

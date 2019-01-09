@@ -1,4 +1,9 @@
-page { background: #f8f8f8; font-family: PingFangSC-Regular; font-size: 14px; overflow: scroll; position: absolute; padding-bottom: 50px; }
+page { background: #f8f8f8; font-family: PingFangSC-Regular; 
+font-size: 14px; overflow: scroll; position: absolute; padding-bottom: 50px; }
+.main {
+  position: absolute;
+  width: 100%
+}
 .title { color: #212121; padding: 10px 15px; background: #fff; border-bottom: 1px solid #f7f9fa;}
 
 .story-content { margin-top: 10px; background: #fff; min-height: 200px;padding: 15px 15px;  position: relative;}

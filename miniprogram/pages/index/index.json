@@ -2,6 +2,7 @@
   "navigationBarTitleText": "主页",
   "backgroundColor": "#213C5C",
   "usingComponents": {
-    "tabbar": "../../tabbarComponent/tabbar"
+    "tabbar": "../../tabbarComponent/tabbar",
+    "navbar": "../../navigationBar/navigation"
   }
 }

@@ -1,11 +1,13 @@
 // miniprogram/pages/story_list/story_list.js
+const navigationBarHeight = (getApp().statusBarHeight + 44) + 'px';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    list:[]
+    list:[],
+    navigationBarHeight
   },
 
   /**

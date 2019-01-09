@@ -1,4 +1,8 @@
 /* miniprogram/pages/user_list/user_list.wxss */
+.main {
+  position: absolute;
+  width: 100%
+}
 .cell { display: flex; align-items: center;  height: 80px; position: relative;}
 .avatar { width: 45px; height: 45px; margin:10px 10px 10px 20px;border-radius: 50%;overflow: hidden; position: relative; display: inline-block;}
 .uname{ height: 15px;font-size: 14px; color: #111; width: 80%; position: absolute; left: 40px; width: 130px; text-align: center; display: block;}

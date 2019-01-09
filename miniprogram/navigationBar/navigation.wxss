@@ -1,0 +1,49 @@
+/* navigationBar/navigation.wxss */
+.navbar {
+  width: 100vw;
+  background-color: #213C5C;
+  position: fixed;
+  z-index: 4;
+}
+.page-header {display: -webkit-flex; height: 44px; font-size: 16px; color: #ECEDFB;align-items: center}
+.date { height: 22px;  float: left; line-height: 22px; margin-left: 5px;}
+.weather-text { height: 22px; float: left;margin-left: 10px;}
+.weather-icon { width: 17px; height: 14px; float: left;margin-left: 15px;}
+.capsule {
+  margin-left: 10px;
+  height: 32px;
+  border: 0px solid #777;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.capsule > view {
+  width: 32px;
+  height: 60%;
+  position: relative;
+}
+
+.capsule > view:nth-child(2) {
+  border-left: 0px solid #777;  
+}
+
+.capsule image {
+  width: 60%;
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+.title {
+  color: white;
+  position: absolute;
+  left: 104px;
+  right: 104px;
+  font-size: 14px;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

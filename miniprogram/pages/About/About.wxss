@@ -1,0 +1,9 @@
+/* miniprogram/pages/About/About.wxss */
+.main {
+  position: absolute;
+  width: 100%;
+}
+.app-icon {position: relative;left:50%; margin: -50px; top: 64px; width: 100px; height: 100px;border-radius: 50%;overflow: hidden }
+
+.version {position: relative;width: 100%; text-align:center;top: 170px;overflow: hidden ;color: #4089eB;font-size: 15px;font-weight: bold}
+.contact {position: relative;text-align:center;top: 190px;overflow: hidden ;color: #8089eB;font-size: 18px}
