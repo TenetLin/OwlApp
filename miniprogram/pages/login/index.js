@@ -73,12 +73,15 @@ Page({
       data: ret.detail,
       name: 'active_user',
       success ({ errMsg, result }) {
-        console.log('active_user', errMsg, result)
+        console.log('active_user suc', errMsg, result)
         if (result.ret === 0) {
           wx.switchTab({
             url: '/pages/index/index',
           })
         }
+      },
+      fail (err) {
+        console.log('active_user err', err)
       }
     })
   }

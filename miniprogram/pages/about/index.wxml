@@ -1,4 +1,3 @@
-<!--miniprogram/pages/About/About.wxml-->
 <navbar title="{{titles}}" back="{{true}}" text="{{navigationBarTitle}}"></navbar>
 <view class='main' style="{{'top:' + navigationBarHeight}}">
   <image class='app-icon' src='/images/icon.png'/>

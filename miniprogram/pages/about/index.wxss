@@ -1,4 +1,3 @@
-/* miniprogram/pages/About/About.wxss */
 .main {
   position: absolute;
   width: 100%;

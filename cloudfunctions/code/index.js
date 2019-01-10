@@ -1,61 +1,62 @@
 // 云函数入口文件
 const cloud = require('wx-server-sdk')
 const fetch = require('node-fetch')
-const url = 'https://api.weixin.qq.com/sns/jscode2session?appid=wxf62677b14a3c2734&secret=2ab490cdab5f0a8ce3e29225561b8d21&js_code=JSCODE&grant_type=authorization_code'
+const url = 'https://api.weixin.qq.com/sns/jscode2session?appid=$appid&secret=$secret&js_code=$js_code&grant_type=authorization_code'
 cloud.init()
 const db = cloud.database()
-const collection = db.collection('owl_user')
+const user_collection = db.collection('owl_user')
+const utils_collection = db.collection('owl_utils')
 
 // 云函数入口函数
 exports.main = async (event, context) => {
 
   const { code } = event
-  const { APPID } = cloud.getWXContext()
 
-  return new Promise(resovle => {
-    return fetch(url.replace('JSCODE', code))
-      .then(res => res.json())
-      .then(res => {
+  const app_sec = await utils_collection.doc('app').get();
 
-        console.log(res)
-        const { openid, session_key } = res
+  console.log(code, app_sec)
 
-        return collection.where({ _id: openid }).get().then(res => {
+  if (app_sec.errMsg !== 'document.get:ok') return { ret: -100, msg: 'get appid and secret error' }
 
-          //用户已经在后台注册OK
-          if (res.data.length === 1) {
-            
-            const user = res.data[0]
+  const { appid, secret } = app_sec.data || {}
 
-            return collection.where({ _id: openid }).update({
-              data: {
-                session_key,
-                sk_ut: new Date()
-              }
-            }).then(res => {
-              console.log('update session_key succ', res)
-              return user
-            })
-          } else {
-            return collection.add({
-              data: {
-                appid: APPID,
-                _id: openid,
-                session_key,
-                sk_ut: new Date
-              }
-            }).then(res => {
-              console.log('add session_key succ', res)
-              return {}
-            })
-          }
-        }).then(user => {
-          console.log('update db', user)
-          return resovle({ ret: user.active || 0, msg: 'OK' })
-        })
-      }).catch( ex => {
-        console.error('error=', ex)
-        return resovle({ ret: -100, msg: 'error' })
-      })
-  })
+  if (!appid || !secret) return { ret: -100, msg: 'get appid and secret error' }
+
+  const _url = url.replace('$appid', appid).replace('$secret', secret).replace('$js_code', code);
+
+  const { openid, session_key } = await fetch(_url).then(res => res.json())
+
+  if (!openid || !session_key) return { ret: -100, msg: 'fetch openid and session_key error' }
+
+  const user_ret = await user_collection.where({ _id: openid }).get()
+
+  console.log(user_ret);
+
+  if (user_ret.errMsg !== 'collection.get:ok') return { ret: -100, msg: 'get user error' }
+
+  let user_up_ret, user = user_ret.data[0] || {}
+
+  if (user_ret.data.length === 0) {
+    user_up_ret = await user_collection.add({
+      data: {
+        appid,
+        _id: openid,
+        session_key,
+        sk_ut: new Date
+      }
+    })
+
+  } else {
+
+    user_up_ret = await user_collection.where({ _id: openid }).update({
+      data: {
+        session_key,
+        sk_ut: new Date()
+      }
+    })
+
+  }
+  console.log('user_up_ret=', user_up_ret)
+
+  return { ret: user.active || 0, msg: 'OK' }
 }

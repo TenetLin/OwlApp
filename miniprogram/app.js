@@ -91,6 +91,7 @@ App({
     
   },
   getSystemInfo: function () {
+
     let t = this;
     wx.getSystemInfo({
       success: function (res) {
@@ -98,8 +99,11 @@ App({
         t.globalData.systemInfo = res;
       }
     });
+
   },
+  
   editTabbar: function () {
+
     let tabbar = this.globalData.tabBar;
     let currentPages = getCurrentPages();
     let _this = currentPages[currentPages.length - 1];
