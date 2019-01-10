@@ -1,6 +1,6 @@
 <navbar date="{{date}}" weather="{{weathers}}"></navbar>
 <view class='main' style="{{'top:' + navigationBarHeight}}">
- <swiper style='height:{{swiper_height}}'>
+    <swiper style='height:{{swiper_height}}'>
         <block wx:for="{{background}}" wx:key="*this">
           <swiper-item>
           <scroll-view class='scroll_view'  style="height: 100%;"
@@ -31,7 +31,6 @@
           </swiper-item>
         </block>
       </swiper>
-<view class='container'>
- <tabbar tabbar="{{tabbar}}"></tabbar>
 </view>
-</view>
+
+    

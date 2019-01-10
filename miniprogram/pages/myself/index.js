@@ -125,7 +125,7 @@ Page({
 
 
     wx.navigateTo({
-      url: `../About/About`
+      url: `../swiper/swiper`
     })
   },
 })
