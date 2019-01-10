@@ -8,20 +8,7 @@
     "pages/login/index",
     "pages/user_list/user_list",
     "pages/story_list/story_list",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "pages/About/About",
-    "pages/swiper/swiper"
-=======
     "pages/about/index"
->>>>>>> master
-=======
-    "pages/about/index"
->>>>>>> master
-=======
-    "pages/about/index"
->>>>>>> master
   ],
   "tabBar": {
     "backgroundColor": "#ffffff",
