@@ -1,20 +1,22 @@
 const moment = require('../../common/moment.min.js');
 const app = getApp();
 const navigationBarHeight = (app.statusBarHeight + 44) + 'px';
+const swiper_height = 600 + 'px';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-     background: ['demo-text-1', 'demo-text-2', 'demo-text-3'],
+    background: [1000, 21000],
     tabbar: {},
     date: moment().format('YYYY年MM月DD日'),
     list: [],
     navigationBarTitle: '主页',
     navigationBarHeight,
     titles:true,
-    weathers:true
+    weathers:true,
+    swiper_height
   },
 
   /**
@@ -90,7 +92,16 @@ Page({
   onReachBottom: function () {
 
   },
-
+  swiperChange:function(e){
+    let s = e.detail.source
+    if(s == "touch")
+    {
+    var a = new Array(11111);
+    this.setData({
+      background: a,
+    })
+    }
+  },
   /**
    * 用户点击右上角分享
    */

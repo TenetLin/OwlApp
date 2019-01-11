@@ -1,6 +1,6 @@
 <navbar date="{{date}}" weather="{{weathers}}"></navbar>
 <view class='main' style="{{'top:' + navigationBarHeight}}">
- <swiper style='height:{{swiper_height}}'>
+ <swiper circular='true' bindchange='swiperChange' style='height:{{swiper_height}}' current='{{cur}}'>
         <block wx:for="{{background}}" wx:key="*this">
           <swiper-item>
           <scroll-view class='scroll_view'  style="height: 100%;"
