@@ -31,13 +31,13 @@
 .list-item .more { color:#999;font-size:12px;text-align:right; }
 .list-item .right { width: 16px; height: 16px; float: right; margin-right: 15px;}
 
-.comment-bottom { position: relative;}
-.comment-input { background: #f4f4f4; font-size: 14px; padding: 4px 8px; border-radius: 4px;}
+.comment-bottom { position: relative;width: 100%}
+.comment-input { background: #f4f4f4; font-size: 14px; padding: 4px 8px; border-radius: 4px;margin-right: 70px }
 
 
 .num-area { color: #002464; padding: 12px 0 8px;}
 
-.comment-bottom .btn { position: absolute; right: 0px; top:0px; z-index: 100; width: 30px; padding: 0px 3px; background: transparent; font-size: 12px;}
+.comment-bottom .btn { position: absolute; margin-left: 8px; right: -10px; top:4px; z-index: 100; width: 60px; padding: 0px 0px; background:  #5B94DC; color:#fff;font-weight:bold; font-size: 12px;}
 .num-area image { width: 14px; height: 14px;}
 .num-area { font-size: 12px;}
 .num-area view { display: inline-block; }

@@ -34,7 +34,7 @@
   </view>
   <view class='comment-bottom'>
     <input class='comment-input' type='text' cursor-spacing='80' placeholder='我也说一句' bindinput='input' value='{{user_comment}}' confirm-type='send '></input>
-    <button class='btn' bindtap='submit'>发表</button>
+    <button class='btn' bindtap='submit'>发声</button>
     <view class='num-area'>
       <view class='comment'>
         <image src='/images/comment.png'/>
