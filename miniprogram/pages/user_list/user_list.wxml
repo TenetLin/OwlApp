@@ -1,10 +1,9 @@
-<!--miniprogram/pages/user_list/user_list.wxml-->
-<navbar title="{{true}}" back="{{true}}" text="{{navigationBarTitle}}"></navbar>
-<view class='main' style="{{'top:' + navigationBarHeight}}">
-<view wx:for="{{list}}" style="width:100%">
+<navbar title='{{true}}' back='{{true}}' text='{{navigationBarTitle}}'></navbar>
+<view class='main' style='{{"top:" + navigationBarHeight}}'>
+<view wx:for='{{list}}' wx:key='{{item.avatarUrl}}' style='width:100%'>
   <view class='cell'>
     <image class='avatar' src='{{item.avatarUrl}}'></image>
-    <label class="uname">{{item.nickName}}</label>
+    <label class='uname'>{{item.nickName}}</label>
     <button class='btn' bindtap='attation'>{{item.followed ? '已关注': '关注'}}</button>
     </view>
   </view>

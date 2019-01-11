@@ -1,4 +1,3 @@
-// miniprogram/pages/publish_ender/index.js
 const navigationBarHeight = (getApp().statusBarHeight + 44) + 'px';
 Page({
 
@@ -24,7 +23,6 @@ Page({
     this.getUsrInfo(uid)
     this.getUserList(uid)
     this.follow(uid, 'query')
-
   },
 
   follow: function (uid, type) {

@@ -1,4 +1,3 @@
-/* miniprogram/pages/user_list/user_list.wxss */
 .main {
   position: absolute;
   width: 100%

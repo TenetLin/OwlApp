@@ -2,7 +2,7 @@
   <view class='left-container'>
     <view class="up"><image class='avatar' src='{{user_info.avatarUrl}}'></image></view>
   </view>
-  <text class="uname">{{user_info.nickName}}</text>
+  <text class='uname'>{{user_info.nickName}}</text>
   <view class='right-container'>
     <view class="up">
       <view>获赞：{{user_info.starNum}}</view>

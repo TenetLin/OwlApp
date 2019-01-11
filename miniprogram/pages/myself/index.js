@@ -108,6 +108,7 @@ Page({
       url: `../user_list/user_list?uid=${uid}&title=${title}`
     })
   },
+
   //跳转到我的故事界面
   goMyStorys: function (e) {
 
@@ -118,12 +119,11 @@ Page({
     wx.navigateTo({
       url: `../story_list/story_list?uid=${uid}`
     })
+
   },
   goAbout: function (e) {
 
     console.log('start go mystory', e)
-
-
     wx.navigateTo({
       url: '../about/index'
     })
