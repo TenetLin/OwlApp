@@ -4,7 +4,7 @@
   <view class='userinfo'>
     <open-data type='userAvatarUrl' class='avatar'></open-data>
     <open-data type='userNickName' class='uname'></open-data>
-    <image class='user-right' src='/images/icon_arrow.png'></image>
+    <!-- <image class='user-right' src='/images/icon_arrow.png'></image> -->
   </view>
 </view>
 <view class='his-data'>

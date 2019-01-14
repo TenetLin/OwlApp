@@ -96,6 +96,9 @@ Page({
     let s = e.detail.source
     if(s == "touch")
     {
+        /**
+   * 飞哥在这里处理用户滑动逻辑
+   */
     var a = new Array(11111);
     this.setData({
       background: a,
