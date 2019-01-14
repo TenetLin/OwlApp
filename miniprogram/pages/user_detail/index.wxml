@@ -1,3 +1,5 @@
+<navbar title="{{true}}" back="{{true}}" text="{{navigationBarTitle}}"></navbar>
+<view class='main' style="{{'top:' + navigationBarHeight}}">
 <view class='user-header'>
   <view class='left-container'>
     <view class="up"><image class='avatar' src='{{user_info.avatarUrl}}'></image></view>
@@ -14,7 +16,6 @@
     </view>
   </view>
 </view>
-
 <view class='content' wx:for='{{list}}' wx:key='_id' wx:for-item='item' wx:for-index='idx' hover-class='item_hover'>
   <view class='header'>
     <image class='owner-icon' src='{{item.userInfo.avatarUrl}}' data-uid='{{item.userInfo.uid}}'/>
@@ -32,4 +33,5 @@
       <image src='/images/arrow3.png'/>
     </view> 
   </view>
+</view>
 </view>

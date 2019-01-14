@@ -1,10 +1,13 @@
-page { background: #213C5C; font-family: PingFangSC-Regular; }
-.user-header { background: #e7e7e7; height: 90px; padding-left: 30rpx;padding: 15px 10px;margin-bottom: 5px; position: relative;}
+.main {
+  position: absolute;
+  width: 100%
+}
+page { background: rgb(240, 240, 240); font-family: PingFangSC-Regular; }
+.user-header { background: white; height: 90px; padding-left: 30rpx;padding: 15px 10px;margin-bottom: 0px; position: relative;}
 .left-container { width: 30%; display: inline-block; height: 90px; text-align: center}
 .right-container { width: 69%; display: inline-block; height: 90px;}
-
 .left-container .up { height: 65px;}
-.uname{ height: 15px;font-size: 14px; color: #111; width: 80%; position: absolute; top: 85px; width: 130px; text-align: center; left: 0; display: block;}
+.uname{ height: 15px;font-size: 14px; color: #111; width: 130px; position: absolute; top: 85px;text-align: center; left: 0; display: block;}
 
 .avatar { width: 65px; height: 65px;border-radius: 50%;overflow: hidden }
 
@@ -15,9 +18,8 @@ page { background: #213C5C; font-family: PingFangSC-Regular; }
 
 .btn { width: 90%; height: 30px; font-size: 12px; background: #47668f; border-radius: 6px; color: #f7f9fa; vertical-align: middle; display: inline-block; margin-left:5%; margin-top: 10px;}
 
-
-.content { display: block; margin: 0 0 5px; background-color:#fff; padding: 20px 20px 30px; position: relative;}
-.content .header { display: block; height: 27px; margin: 0; color: #fff;}
+.content { display: block; margin: 0px 0px 0px; background-color:#fff; padding: 20px 20px 30px;margin-top: 2px; position: relative;}
+.content .header { display: block; height: 27px; margin: 5px; color: #fff;}
 .content .header .tag { background-color: #5B94DC; float: left; font-size: 13px; padding: 2px 7px; border-radius: 5px; margin-top: 2px;}
 .content .header .owner-icon { width: 27px; height: 27px; float: left; border-radius: 50%; }
 .content .header .owner-text { color: #002464; font-size:14px; float: left; margin: 3px 10px; }
