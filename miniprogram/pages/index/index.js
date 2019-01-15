@@ -8,31 +8,67 @@ Page({
    * 页面的初始数据
    */
   data: {
-    background: [1000, 21000],
+    day_datas: [],
     tabbar: {},
-    date: moment().format('YYYY年MM月DD日'),
-    list: [],
     navigationBarTitle: '主页',
     navigationBarHeight,
     titles:true,
     weathers:true,
-    swiper_height
+    swiper_height,
+    type: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function () {
+
     app.editTabbar();
+
     try {
+
       const data = JSON.parse(wx.getStorageSync('list') || '{}')
+
       this.setData(data)
+
     } catch (ex) {
+
       console.log('get data from cache error, key=list, ex=', ex)
+
     }
 
+    const today = moment().format('YYYYMMDD')
+    const tomorrow = moment().add(1, 'days').format('YYYYMMDD')
+    const yesterday = moment().add(-1, 'days').format('YYYYMMDD')
+
+    this.setData({
+      day_datas: [
+        {
+          date: yesterday,
+          showDate: moment().add(-1, 'days').format('YYYY年MM月DD日'),
+          data: []
+        },
+        {
+          date: today,
+          showDate: moment().format('YYYY年MM月DD日'),
+          data: []
+        },
+        {
+          date: tomorrow,
+          showDate: moment().add(1, 'days').format('YYYY年MM月DD日'),
+          data: []
+        }
+      ]
+    })
+    
+    this.getOneDay(today)
+    this.getOneDay(yesterday)
+  },
+
+  getOneDay: function (date) {
+
     const that = this
-    const date = moment().format('YYYYMMDD')
+
     wx.cloud.callFunction({
       // 需调用的云函数名
       name: 'getlist',
@@ -40,14 +76,27 @@ Page({
       success({ errMsg, result }) {
         
         console.log('get list suc', errMsg, result)
+        
+        let day_datas = that.data.day_datas
 
-        that.setData({
-          list: result
+        day_datas = day_datas.map(item => {
+
+          if (item.date === date) {
+            item.data = result
+          }
+          return item
         })
+
+        that.setData({ day_datas })
+
         that.save()
+        console.log('data=', that.data);
       },
+
       fail(error) {
+
         console.log('get list error', error)
+
       }
     })
   },
@@ -92,18 +141,50 @@ Page({
   onReachBottom: function () {
 
   },
-  swiperChange:function(e){
-    let s = e.detail.source
-    if(s == "touch")
-    {
-        /**
-   * 飞哥在这里处理用户滑动逻辑
-   */
-    var a = new Array(11111);
-    this.setData({
-      background: a,
-    })
+
+  //通过滑动动画，判断是左滑动还是右滑动
+  bindanimationfinish: function(e) {
+
+    if (e.detail.source === 'touch') {
+
+      let type = e.detail.dx > 0 ? 'left': 'right'
+
+      this.setData({ type })
     }
+  },
+
+  bindchange: function (e) {
+
+    if (e.detail.source !== 'touch') return
+
+    let type = this.data.type
+    let day_datas = this.data.day_datas
+
+    let current = moment(day_datas[1].date, 'YYYYMMDD')
+
+    if (type === 'left') {
+
+      day_datas.splice(2, 1)
+
+      day_datas.unshift({
+        date: current.add(-1, 'days').format('YYYYMMDD'),
+        showDate: current.add(-1, 'days').format('YYYY年MM月DD日'),
+        data: []
+      })
+
+    } else {
+
+      day_datas.splice(0, 1)
+      day_datas.push({
+        date: current.add(1, 'days').format('YYYYMMDD'),
+        showDate: current.add(1, 'days').format('YYYY年MM月DD日'),
+        data: []
+      })
+    }
+
+    this.setData({ day_datas })
+    this.getOneDay(current.format('YYYYMMDD'))
+
   },
   /**
    * 用户点击右上角分享
