@@ -1,0 +1,5 @@
+/* miniprogram/pages/user_protocol/user_protocol.wxss */
+.main {
+  position: absolute;
+  width: 100%
+}

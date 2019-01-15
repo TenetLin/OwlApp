@@ -3,4 +3,5 @@
   <image class='app-icon' src='/images/icon.png'/>
   <text class='version'>当前版本：1.0.0</text>
   <text class='contact'>QQ群：379466592</text>
+  <button bindtap='goProtocol' class='protocol'>用户协议</button>
 </view>
