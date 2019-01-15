@@ -1,26 +1,20 @@
-const navigationBarHeight = (getApp().statusBarHeight + 44) + 'px'
+// miniprogram/pages/user_protocol/user_protocol.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    navigationBarHeight
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    /*去掉按钮边框*/
-
 
   },
-  goProtocol: function (e) {
-    wx.navigateTo({
-      url: `../user_protocol/user_protocol`
-    })
-  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
