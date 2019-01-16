@@ -160,30 +160,36 @@ Page({
     let type = this.data.type
     let day_datas = this.data.day_datas
 
-    let current = moment(day_datas[1].date, 'YYYYMMDD')
+    let new_date
+    let cur_index = e.detail.current
 
-    if (type === 'left') {
+    if (cur_index < 2) {
 
       day_datas.splice(2, 1)
 
+      new_date = moment(day_datas[0].date, 'YYYYMMDD').add(-1, 'days')
+
       day_datas.unshift({
-        date: current.add(-1, 'days').format('YYYYMMDD'),
-        showDate: current.add(-1, 'days').format('YYYY年MM月DD日'),
+        date: new_date.format('YYYYMMDD'),
+        showDate: new_date.add(-1, 'days').format('YYYY年MM月DD日'),
         data: []
       })
 
     } else {
 
       day_datas.splice(0, 1)
+
+      new_date = moment(day_datas[2].date, 'YYYYMMDD').add(1, 'days')
+
       day_datas.push({
-        date: current.add(1, 'days').format('YYYYMMDD'),
-        showDate: current.add(1, 'days').format('YYYY年MM月DD日'),
+        date: new_date.format('YYYYMMDD'),
+        showDate: new_date.format('YYYY年MM月DD日'),
         data: []
       })
     }
 
     this.setData({ day_datas })
-    this.getOneDay(current.format('YYYYMMDD'))
+    this.getOneDay(new_date.format('YYYYMMDD'))
 
   },
   /**
