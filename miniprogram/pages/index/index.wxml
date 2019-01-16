@@ -1,4 +1,4 @@
-<navbar date="{{day_datas[1].showDate}}" weather="{{weathers}}"></navbar>
+<navbar date="{{day_datas[1].showDate}}" weather="{{weathers}}" home= "{{homes}}" ></navbar>
 <view class='main' style="{{'top:' + navigationBarHeight}}">
   <swiper circular='true' bindchange='bindchange' style='height:{{swiper_height}}' current='2' >
     <block wx:for='{{day_datas}}' wx:key='_date' wx:for-item='date_data' wx:for-index='index' data-item="b{{date_data.date}}" data-index='b{{index}}'>

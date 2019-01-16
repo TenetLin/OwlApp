@@ -15,6 +15,7 @@ Page({
     titles:true,
     weathers:true,
     swiper_height,
+    homes:false,
     type: ''
   },
 
@@ -187,7 +188,7 @@ Page({
         data: []
       })
     }
-
+/* 设置 weathers 的真值确定是否显示天气，设置 homes 的真值确定是否显示回到今天*/
     this.setData({ day_datas })
     this.getOneDay(new_date.format('YYYYMMDD'))
 

@@ -28,13 +28,8 @@
   border-left: 0px solid #777;  
 }
 
-.capsule image {
-  width: 60%;
-  height: 100%;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%,-50%);
+.capsule button {
+  position: relative; width: 60px; padding: 0px 0px; background:  white; color: #5B94DC;font-weight:bold; font-size: 12px;
 }
 .title {
   color: white;

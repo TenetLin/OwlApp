@@ -5,7 +5,7 @@ Component({
   properties: {
     text: {
       type: String,
-      value: 'Wechat'
+      value: null
     },
     back: {
       type: Boolean,
@@ -36,9 +36,7 @@ Component({
 
   methods: {
     backHome: function () {
-      wx.reLaunch({
-        url: '../index/index',
-      })
+      /*回到当前日期*/
     },
     back: function () {
       wx.navigateBack({
