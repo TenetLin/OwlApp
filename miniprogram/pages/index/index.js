@@ -2,6 +2,7 @@ const moment = require('../../common/moment.min.js');
 const app = getApp();
 const navigationBarHeight = (app.statusBarHeight + 44) + 'px';
 const swiper_height = 600 + 'px';
+var lastindex =2;
 Page({
 
   /**
@@ -16,7 +17,7 @@ Page({
     weathers:true,
     swiper_height,
     homes:false,
-    type: ''
+    type: '',
   },
 
   /**
@@ -157,30 +158,34 @@ Page({
   bindchange: function (e) {
 
     if (e.detail.source !== 'touch') return
-
     let type = this.data.type
     let day_datas = this.data.day_datas
 
     let new_date
     let cur_index = e.detail.current
 
-    if (cur_index < 2) {
-
+    /* 这样判断左右，测试是准的*/
+    var cur = e.detail.current
+    
+    if ((cur - lastindex<0 && cur - lastindex>-2 ) || cur-lastindex == 2)
+    {
+      console.log(cur , lastindex,"左")
+      new_date = moment(day_datas[0].date, 'YYYYMMDD').add(-1, 'days')
       day_datas.splice(2, 1)
 
-      new_date = moment(day_datas[0].date, 'YYYYMMDD').add(-1, 'days')
 
       day_datas.unshift({
         date: new_date.format('YYYYMMDD'),
         showDate: new_date.add(-1, 'days').format('YYYY年MM月DD日'),
         data: []
       })
-
-    } else {
-
+    }
+    else
+    {
+      console.log(cur , lastindex,"右")
+      new_date = moment(day_datas[2].date, 'YYYYMMDD').add(1, 'days')
       day_datas.splice(0, 1)
 
-      new_date = moment(day_datas[2].date, 'YYYYMMDD').add(1, 'days')
 
       day_datas.push({
         date: new_date.format('YYYYMMDD'),
@@ -188,6 +193,36 @@ Page({
         data: []
       })
     }
+    lastindex = cur
+
+
+
+
+
+    // if (cur_index < 2) {
+
+    //   new_date = moment(day_datas[0].date, 'YYYYMMDD').add(-1, 'days')
+    //   day_datas.splice(2, 1)
+
+
+    //   day_datas.unshift({
+    //     date: new_date.format('YYYYMMDD'),
+    //     showDate: new_date.add(-1, 'days').format('YYYY年MM月DD日'),
+    //     data: []
+    //   })
+
+    // } else {
+
+    //   new_date = moment(day_datas[2].date, 'YYYYMMDD').add(1, 'days')
+    //   day_datas.splice(0, 1)
+
+
+    //   day_datas.push({
+    //     date: new_date.format('YYYYMMDD'),
+    //     showDate: new_date.format('YYYY年MM月DD日'),
+    //     data: []
+    //   })
+    // }
 /* 设置 weathers 的真值确定是否显示天气，设置 homes 的真值确定是否显示回到今天*/
     this.setData({ day_datas })
     this.getOneDay(new_date.format('YYYYMMDD'))
