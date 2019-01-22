@@ -167,7 +167,7 @@ Page({
     /* 这样判断左右，测试是准的*/
     var cur = e.detail.current
     
-    if ((cur - lastindex<0 && cur - lastindex>-2 ) || cur-lastindex == 2)
+    if ((cur - lastindex<0) || cur-lastindex == 2)
     {
       console.log(cur , lastindex,"左")
       new_date = moment(day_datas[0].date, 'YYYYMMDD').add(-1, 'days')

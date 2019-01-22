@@ -7,7 +7,8 @@ font-size: 14px; overflow: scroll; position: absolute; padding-bottom: 50px; }
 .title { color: #212121; padding: 10px 15px; background: #fff; border-bottom: 1px solid #f7f9fa;}
 
 .story-content { margin-top: 10px; background: #fff; min-height: 200px;padding: 15px 15px;  position: relative;}
-.story-content .textarea { width: 100%; display: block; height: 100px; }
+.story-content .textarea { width: 100%; display: block; height: 150px; }
+.story-content .textareatail { width: 100%; display: block; height: 50px; }
 
 .image-container { width: 85px; height: 85px; margin:10px 10px 0 0; position: relative; display: inline-block;}
 .image-container .upload { width: 85px; height: 85px; }
