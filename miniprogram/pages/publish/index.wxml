@@ -13,7 +13,7 @@
   </view>
 </view>
 <view class='story-content' >
-  <textarea class='textareatail' placeholder='你的故事一定有一个意料之外情理之中的结尾～' cursor-spacing='440' id='end_text'  bindinput='input' value='{{end_text}}' />
+  <textarea class='textareatail' placeholder='你的故事一定有一个意料之外情理之中的结尾～' cursor-spacing='300' id='end_text'  bindinput='input' value='{{end_text}}' />
   <view class='image-container' wx:for='{{end_images}}' wx:key='store_src' wx:for-item='item' wx:for-index='idx'>
     <image class='upload' src='{{item.store_src}}'></image>
     <image class='close' src='/images/image_close.png' data-index='{{idx}}' data-type='end' bindtap='delImage'></image>
