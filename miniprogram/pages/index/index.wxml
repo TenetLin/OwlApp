@@ -1,9 +1,9 @@
 <navbar date="{{day_datas[1].showDate}}" weather="{{weathers}}" home= "{{homes}}" ></navbar>
 <view class='main' style="{{'top:' + navigationBarHeight}}">
-  <swiper circular='true' bindanimationfinish='bindanimationfinish' bindchange='bindchange' style='height:{{swiper_height}}' current='2' >
+  <swiper circular='true' bindanimationfinish='bindanimationfinish' bindchange='bindchange' style='height:{{swiper_height}}' current='1' >
     <block wx:for='{{day_datas}}' wx:key='_date' wx:for-item='date_data' wx:for-index='index' data-item="b{{date_data.date}}" data-index='b{{index}}'>
       <swiper-item data-item="i{{date_data.date}}" data-index='i{{index}}'>
-        <scroll-view class='scroll_view' data-item="v{{date_data.date}}" data-index='v{{index}}' style="height: 100%;" scroll-y bindscroll="scroll" bindscrolltolower="reactBottom" scroll-with-animation scroll-top="{{scrollTop0}}px">
+        <scroll-view class='scroll_view' data-item="v{{date_data.date}}" data-index='v{{index}}' style="height: 100%;" scroll-y bindscrolltolower="reactBottom" scroll-with-animation scroll-top="{{scrollTop0}}px">
           <view class='content' wx:for='{{date_data.data}}' wx:key='_id' wx:for-item='item' wx:for-index='idx' hover-class='item_hover'>
             <view class='header'>
               <image class='owner-icon' src='{{item.userInfo.avatarUrl}}' data-uid='{{item.userInfo.uid}}' bindtap='goUser'/>
