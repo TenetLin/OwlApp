@@ -112,20 +112,21 @@ Page({
   //跳转到我的故事界面
   goMyStorys: function (e) {
 
-    console.log('start go mystory', e)
+//暂时关闭入口
+    // console.log('start go mystory', e)
 
-    const { uid } = e.currentTarget.dataset
+    // const { uid } = e.currentTarget.dataset
 
-    wx.navigateTo({
-      url: `../story_list/story_list?uid=${uid}`
-    })
+    // wx.navigateTo({
+    //   url: `../story_list/story_list?uid=${uid}`
+    // })
 
   },
   goAbout: function (e) {
-
-    console.log('start go mystory', e)
-    wx.navigateTo({
-      url: '../about/index'
-    })
+    //暂时关闭入口
+    // console.log('start go mystory', e)
+    // wx.navigateTo({
+    //   url: '../about/index'
+    // })
   },
 })
