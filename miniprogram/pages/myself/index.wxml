@@ -1,4 +1,4 @@
-<navbar title="{{titles}}" text="{{navigationBarTitle}}"></navbar>
+<navbar title="true" text="{{navigationBarTitle}}"></navbar>
 <view class='main' style="{{'top:' + navigationBarHeight}}">
 <view class='user-container'>
   <view class='userinfo'>

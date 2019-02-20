@@ -2,6 +2,6 @@
     "navigationBarTitleText": "个人主页",
     "backgroundColor": "#213C5C",
       "usingComponents": {
-        "navbar": "../../navigationBar/navigation"
+        "navbar": "../../component/navigationBar/navigation"
       }
 }

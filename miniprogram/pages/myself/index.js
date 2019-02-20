@@ -11,8 +11,7 @@ Page({
     attentionNum: 0,
     fansNum: 0,
     navigationBarTitle: '我的',
-    navigationBarHeight,
-    titles:true,
+    navigationBarHeight
   },
 
   /**

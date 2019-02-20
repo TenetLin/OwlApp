@@ -1,31 +1,29 @@
 <navbar date="{{day_datas[1].showDate}}" weather="{{weathers}}" home="{{homes}}" ></navbar>
 <view class='main' style="{{'top:' + navigationBarHeight}}">
-  <swiper circular='true' bindchange='bindchange' style='height:{{swiper_height}}' current='{{cur}}'>
-    <block wx:for='{{day_datas}}' wx:key='_date' wx:for-item='date_data' wx:for-index='index' data-item="b{{date_data.date}}" data-index='b{{index}}'>
-      <swiper-item data-item="i{{date_data.date}}" data-index='i{{index}}'>
-        <scroll-view class='scroll_view' data-item="v{{date_data.date}}" data-index='v{{index}}' style="height: 100%;" scroll-y bindscrolltolower="reactBottom" scroll-with-animation scroll-top="{{scrollTop0}}px">
-          <view class='content' wx:for='{{date_data.data}}' wx:key='_id' wx:for-item='item' wx:for-index='idx' hover-class='item_hover'>
-            <view class='header'>
-              <image class='owner-icon' src='{{item.userInfo.avatarUrl}}' data-uid='{{item.userInfo.uid}}' bindtap='goUser'/>
-              <text class='owner-text' data-uid='{{item.userInfo.uid}}' bindtap='goUser'>{{item.userInfo.nickName}}</text>
-              <view wx:if='{{item.checked}}' class='tag'>原创</view>
-              <!--<text class='text-date'>1小时以前</text>-->
-            </view>
-            <view class='text' data-id='{{item._id}}' bindtap='goDetail'>
-              <view>{{item.start_text}}</view>
-              <image class='image' mode='aspectFit' wx:for='{{item.start_images}}' wx:for-item='image' wx:key='fileID' src='{{image.tempFileURL}}'></image>
-            </view>
-            <view class='more-container' data-id='{{item._id}}' bindtap='goDetail'>
-              <view class='more'>
-                <text>查看更多</text>
-                <image src='/images/arrow3.png'/>
-              </view> 
-            </view>
-          </view>
-        </scroll-view>
-      </swiper-item>
-    </block>
-  </swiper>
+<view class="calendar-container">
+  <view class="row">
+  <date-picker date="{{}}" bindonselectdate="select_date" />
+  </view>
+</view>
+  <view class='content' wx:for='{{date_data.data}}' wx:key='_id' wx:for-item='item' wx:for-index='idx' hover-class='item_hover'>
+    <view class='header'>
+      <image class='owner-icon' src='{{item.userInfo.avatarUrl}}' data-uid='{{item.userInfo.uid}}' bindtap='goUser'/>
+      <text class='owner-text' data-uid='{{item.userInfo.uid}}' bindtap='goUser'>{{item.userInfo.nickName}}</text>
+      <view wx:if='{{item.checked}}' class='tag'>原创</view>
+      <!--<text class='text-date'>1小时以前</text>-->
+    </view>
+    <view class='text' data-id='{{item._id}}' bindtap='goDetail'>
+      <view>{{item.start_text}}</view>
+      <image class='image' mode='aspectFit' wx:for='{{item.start_images}}' wx:for-item='image' wx:key='fileID' src='{{image.tempFileURL}}'></image>
+    </view>
+    <view class='more-container' data-id='{{item._id}}' bindtap='goDetail'>
+      <view class='more'>
+        <text>查看更多</text>
+        <image src='/images/arrow3.png'/>
+      </view> 
+    </view>
+    </view>
+
 <view class='container'>
  <tabbar tabbar="{{tabbar}}"></tabbar>
 </view>

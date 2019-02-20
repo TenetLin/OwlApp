@@ -2,7 +2,8 @@
   "navigationBarTitleText": "主页",
   "backgroundColor": "#213C5C",
   "usingComponents": {
-    "tabbar": "../../tabbarComponent/tabbar",
-    "navbar": "../../navigationBar/navigation"
+    "tabbar": "../../component/tabbarComponent/tabbar",
+    "navbar": "../../component/navigationBar/navigation",
+    "date-picker": "../../component/date-picker/index"
   }
 }
