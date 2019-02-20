@@ -1,6 +1,7 @@
 page { background-color: #213C5C; font-family: PingFangSC-Regular; }
 .main {position: absolute;width: 100%}
-.calendar-container { background-color:#FBFCFC; }
+.calendar-container { background-color:#FBFCFC; margin: 0 10px 10px; border-radius: 0 0 10px 10px;}
+.hide { display: none; }
 .swiper-item{ display: block;height: 100%;}
 .item_hover{background-color: rgba(0, 0, 0, 0.1); }
 

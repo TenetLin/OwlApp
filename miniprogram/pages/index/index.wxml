@@ -1,11 +1,11 @@
-<navbar date="{{day_datas[1].showDate}}" weather="{{weathers}}" home="{{homes}}" ></navbar>
+<navbar date="{{select_date}}" weather="{{weathers}}" home="{{homes}}" bindtap='show_calendar'></navbar>
 <view class='main' style="{{'top:' + navigationBarHeight}}">
-<view class="calendar-container">
+<view class="calendar-container {{hide_calendar ? 'hide': '' }}">
   <view class="row">
-  <date-picker date="{{}}" bindonselectdate="select_date" />
+  <date-picker date="{{calendar_select}}" bindonselectdate="select_date" />
   </view>
 </view>
-  <view class='content' wx:for='{{date_data.data}}' wx:key='_id' wx:for-item='item' wx:for-index='idx' hover-class='item_hover'>
+  <view class='content' wx:for='{{data}}' wx:key='_id' wx:for-item='item' wx:for-index='idx' hover-class='item_hover'>
     <view class='header'>
       <image class='owner-icon' src='{{item.userInfo.avatarUrl}}' data-uid='{{item.userInfo.uid}}' bindtap='goUser'/>
       <text class='owner-text' data-uid='{{item.userInfo.uid}}' bindtap='goUser'>{{item.userInfo.nickName}}</text>
