@@ -1,6 +1,6 @@
-<navbar date="{{day_datas[1].showDate}}" weather="{{weathers}}" home= "{{homes}}" ></navbar>
+<navbar date="{{day_datas[1].showDate}}" weather="{{weathers}}" home="{{homes}}" ></navbar>
 <view class='main' style="{{'top:' + navigationBarHeight}}">
-  <swiper circular='true' bindanimationfinish='bindanimationfinish' bindchange='bindchange' style='height:{{swiper_height}}' current='1' >
+  <swiper circular='true' bindchange='bindchange' style='height:{{swiper_height}}' current='{{cur}}'>
     <block wx:for='{{day_datas}}' wx:key='_date' wx:for-item='date_data' wx:for-index='index' data-item="b{{date_data.date}}" data-index='b{{index}}'>
       <swiper-item data-item="i{{date_data.date}}" data-index='i{{index}}'>
         <scroll-view class='scroll_view' data-item="v{{date_data.date}}" data-index='v{{index}}' style="height: 100%;" scroll-y bindscrolltolower="reactBottom" scroll-with-animation scroll-top="{{scrollTop0}}px">

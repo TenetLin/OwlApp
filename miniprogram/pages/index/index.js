@@ -1,8 +1,6 @@
-const moment = require('../../common/moment.min.js');
-const app = getApp();
-const navigationBarHeight = (app.statusBarHeight + 44) + 'px';
-const swiper_height = 600 + 'px';
-var lastindex =2;
+const moment = require('../../common/moment.min.js')
+const app = getApp()
+
 Page({
 
   /**
@@ -12,24 +10,36 @@ Page({
     day_datas: [],
     tabbar: {},
     navigationBarTitle: '主页',
-    navigationBarHeight,
-    titles:true,
-    weathers:true,
-    swiper_height,
+    navigationBarHeight: (app.statusBarHeight + 44) + 'px',
+    titles : true,
+    weathers: true,
+    swiper_height: '600px',
+    cur: 1,
     homes:false,
-    type: '',
+    last_index: 1                                                  //上一次滚动的位置
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
 
-    app.editTabbar();
+    app.editTabbar()
 
     try {
 
       const data = JSON.parse(wx.getStorageSync('list') || '{}')
+      const today = moment().format('YYYYMMDD')
+
+      if (data.day_datas && data.day_datas.length) {
+        
+        data.day_datas.some((item, index) => {
+
+          if (item.date === today) {
+            data.last_index = index
+            return true
+          }
+        })
+      }
 
       this.setData(data)
 
@@ -54,11 +64,6 @@ Page({
           date: today,
           showDate: moment().format('YYYY年MM月DD日'),
           data: []
-        },
-        {
-          date: tomorrow,
-          showDate: moment().add(1, 'days').format('YYYY年MM月DD日'),
-          data: []
         }
       ]
     })
@@ -67,6 +72,9 @@ Page({
     this.getOneDay(yesterday)
   },
 
+  /**
+   * 获取一天的数据
+   */
   getOneDay: function (date) {
 
     const that = this
@@ -92,7 +100,7 @@ Page({
         that.setData({ day_datas })
 
         that.save()
-        console.log('data=', that.data);
+        console.log('data=', that.data)
       },
 
       fail(error) {
@@ -144,87 +152,47 @@ Page({
 
   },
 
-  //通过滑动动画，判断是左滑动还是右滑动
-  bindanimationfinish: function(e) {
-
-    if (e.detail.source === 'touch') {
-
-      let type = e.detail.dx > 0 ? 'left': 'right'
-
-      this.setData({ type })
-    }
-  },
-
+  //滚动逻辑
   bindchange: function (e) {
 
     if (e.detail.source !== 'touch') return
-    let type = this.data.type
+
     let day_datas = this.data.day_datas
-
+    //上次滚动的位置
+    let last_index = this.data.last_index
+    //当前的位置
     let new_date
-    let cur_index = e.detail.current
 
-    /* 这样判断左右，测试是准的*/
-    var cur = e.detail.current
-    
-    if ((cur - lastindex<0) || cur-lastindex == 2)
-    {
-      console.log(cur , lastindex,"左")
-      new_date = moment(day_datas[0].date, 'YYYYMMDD').add(-1, 'days')
-      day_datas.splice(2, 1)
+    let cur = e.detail.current
 
+    console.log(`start|${last_index}|${cur}`)
+
+    //向左, 并且向左的数据日期不足2天，需要补充一天的记录
+    if (cur - last_index < 0 && cur <= 1) {
+
+      new_date = moment(day_datas[cur].date, 'YYYYMMDD').add(-1, 'days')
 
       day_datas.unshift({
         date: new_date.format('YYYYMMDD'),
         showDate: new_date.add(-1, 'days').format('YYYY年MM月DD日'),
         data: []
       })
+
+      last_index = cur + 1
+
+    } else {
+
+      //向右滑动。默认有今天的数据
+      //或者向左，数据日期不止两天
+      last_index = cur
+
+      new_date = moment(day_datas[cur].date, 'YYYYMMDD')
     }
-    else
-    {
-      console.log(cur , lastindex,"右")
-      new_date = moment(day_datas[2].date, 'YYYYMMDD').add(1, 'days')
-      day_datas.splice(0, 1)
 
+    console.log(`end|${last_index}|${cur}`)
 
-      day_datas.push({
-        date: new_date.format('YYYYMMDD'),
-        showDate: new_date.format('YYYY年MM月DD日'),
-        data: []
-      })
-    }
-    lastindex = cur
+    this.setData({ last_index, day_datas, cur })
 
-
-
-
-
-    // if (cur_index < 2) {
-
-    //   new_date = moment(day_datas[0].date, 'YYYYMMDD').add(-1, 'days')
-    //   day_datas.splice(2, 1)
-
-
-    //   day_datas.unshift({
-    //     date: new_date.format('YYYYMMDD'),
-    //     showDate: new_date.add(-1, 'days').format('YYYY年MM月DD日'),
-    //     data: []
-    //   })
-
-    // } else {
-
-    //   new_date = moment(day_datas[2].date, 'YYYYMMDD').add(1, 'days')
-    //   day_datas.splice(0, 1)
-
-
-    //   day_datas.push({
-    //     date: new_date.format('YYYYMMDD'),
-    //     showDate: new_date.format('YYYY年MM月DD日'),
-    //     data: []
-    //   })
-    // }
-/* 设置 weathers 的真值确定是否显示天气，设置 homes 的真值确定是否显示回到今天*/
-    this.setData({ day_datas })
     this.getOneDay(new_date.format('YYYYMMDD'))
 
   },
