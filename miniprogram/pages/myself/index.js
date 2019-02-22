@@ -18,6 +18,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.hideTabBar()
     app.editTabbar();
     try {
       const data = JSON.parse(wx.getStorageSync('myself') || '{}')

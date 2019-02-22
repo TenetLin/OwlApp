@@ -7,10 +7,10 @@ App({
    * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
    */
   onLaunch: function () {
-    wx.hideTabBar();
-    this.getSystemInfo();
-    this.Login();
-    statusBarHeight: 0
+    wx.hideTabBar()
+    this.getSystemInfo()
+    this.Login()
+    //statusBarHeight: 0
   },
   /**
    * 登录
@@ -99,9 +99,7 @@ App({
         t.globalData.systemInfo = res;
       }
     });
-
   },
-  
   editTabbar: function () {
 
     let tabbar = this.globalData.tabBar;
@@ -111,22 +109,15 @@ App({
 
     (pagePath.indexOf('/') != 0) && (pagePath = '/' + pagePath);
 
-
-    // if(pagePath.indexOf('/') != 0){
-    //   pagePath = '/' + pagePath;
-    // } 
-
     for (let i in tabbar.list) {
+
       tabbar.list[i].selected = false;
       (tabbar.list[i].pagePath == pagePath) && (tabbar.list[i].selected = true);
+
     }
     _this.setData({
       tabbar: tabbar
     });
-  },
-  editNavBar:function()
-  {
-   // let navbar = this.globalData.navbar;
   },
   globalData: {
     systemInfo: null,//客户端设备信息

@@ -21,7 +21,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
+    wx.hideTabBar()
     app.editTabbar()
+    console.log('tabbar=', this.data.tabbar)
     let select_date, data
     try {
       const all_data = JSON.parse(wx.getStorageSync('list') || '{}')

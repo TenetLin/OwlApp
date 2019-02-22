@@ -24,6 +24,4 @@
     </view>
     </view>
 </view>
-<view class='container'>
- <tabbar tabbar="{{tabbar}}"></tabbar>
-</view>
+<tabbar tabbar="{{tabbar}}"></tabbar>
