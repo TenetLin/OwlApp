@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    navigationBarTitle: '故事详情',
     id: '',
     //日期
     date: moment().format('YYYY年MM月DD日'),

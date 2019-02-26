@@ -1,72 +1,49 @@
-const moment = require('../../common/moment.min.js');
-const app = getApp();
-const navigationBarHeight = (app.statusBarHeight + 44) + 'px';
-const swiper_height = 600 + 'px';
-var lastindex =2;
-Page({
+const moment = require('../../common/moment.min.js')
+const app = getApp()
 
+Page({
   /**
    * 页面的初始数据
    */
   data: {
-    day_datas: [],
     tabbar: {},
     navigationBarTitle: '主页',
-    navigationBarHeight,
-    titles:true,
-    weathers:true,
-    swiper_height,
+    navigationBarHeight: (app.statusBarHeight + 44) + 'px',
+    weathers: true,
+    swiper_height: '600px',
     homes:false,
-    type: '',
+    select_date: '',
+    calendar_select: '',
+    hide_calendar: true,
+    data: []
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
-
-    app.editTabbar();
-
+    wx.hideTabBar()
+    app.editTabbar()
+    console.log('tabbar=', this.data.tabbar)
+    let select_date, data
     try {
+      const all_data = JSON.parse(wx.getStorageSync('list') || '{}')
+      if (all_data['default_date']) {
+        select_date = moment(all_data['default_date'], 'YYYYMMDD')
+        data = all_data[select_date] || []
+      }
+    } catch (ex) { console.log('get data from cache error, key=list, ex=', ex) }
 
-      const data = JSON.parse(wx.getStorageSync('list') || '{}')
-
-      this.setData(data)
-
-    } catch (ex) {
-
-      console.log('get data from cache error, key=list, ex=', ex)
-
+    if (!select_date || !select_date.isValid()) {
+      select_date = moment()
     }
-
-    const today = moment().format('YYYYMMDD')
-    const tomorrow = moment().add(1, 'days').format('YYYYMMDD')
-    const yesterday = moment().add(-1, 'days').format('YYYYMMDD')
-
-    this.setData({
-      day_datas: [
-        {
-          date: yesterday,
-          showDate: moment().add(-1, 'days').format('YYYY年MM月DD日'),
-          data: []
-        },
-        {
-          date: today,
-          showDate: moment().format('YYYY年MM月DD日'),
-          data: []
-        },
-        {
-          date: tomorrow,
-          showDate: moment().add(1, 'days').format('YYYY年MM月DD日'),
-          data: []
-        }
-      ]
-    })
-    
-    this.getOneDay(today)
-    this.getOneDay(yesterday)
+    data = data || []
+    this.setData({ select_date: select_date.format('YYYY年MM月DD日'), calendar_select: select_date.format('YYYY-MM-DD'), data })
+    this.getOneDay(select_date.format('YYYYMMDD'))
   },
 
+  /**
+   * 获取一天的数据
+   */
   getOneDay: function (date) {
 
     const that = this
@@ -76,30 +53,12 @@ Page({
       name: 'getlist',
       data: { date },
       success({ errMsg, result }) {
-        
         console.log('get list suc', errMsg, result)
-        
-        let day_datas = that.data.day_datas
-
-        day_datas = day_datas.map(item => {
-
-          if (item.date === date) {
-            item.data = result
-          }
-          return item
-        })
-
-        that.setData({ day_datas })
-
-        that.save()
-        console.log('data=', that.data);
+        that.setData({ data: result })
+        that.save(date, result, true)
+        console.log('data=', date, result)
       },
-
-      fail(error) {
-
-        console.log('get list error', error)
-
-      }
+      fail(error) { console.log('get list error', error)}
     })
   },
 
@@ -133,7 +92,7 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function ()  {
 
   },
 
@@ -144,100 +103,43 @@ Page({
 
   },
 
-  //通过滑动动画，判断是左滑动还是右滑动
-  bindanimationfinish: function(e) {
-
-    if (e.detail.source === 'touch') {
-
-      let type = e.detail.dx > 0 ? 'left': 'right'
-
-      this.setData({ type })
-    }
-  },
-
-  bindchange: function (e) {
-
-    if (e.detail.source !== 'touch') return
-    let type = this.data.type
-    let day_datas = this.data.day_datas
-
-    let new_date
-    let cur_index = e.detail.current
-
-    /* 这样判断左右，测试是准的*/
-    var cur = e.detail.current
-    
-    if ((cur - lastindex<0) || cur-lastindex == 2)
-    {
-      console.log(cur , lastindex,"左")
-      new_date = moment(day_datas[0].date, 'YYYYMMDD').add(-1, 'days')
-      day_datas.splice(2, 1)
-
-
-      day_datas.unshift({
-        date: new_date.format('YYYYMMDD'),
-        showDate: new_date.add(-1, 'days').format('YYYY年MM月DD日'),
-        data: []
-      })
-    }
-    else
-    {
-      console.log(cur , lastindex,"右")
-      new_date = moment(day_datas[2].date, 'YYYYMMDD').add(1, 'days')
-      day_datas.splice(0, 1)
-
-
-      day_datas.push({
-        date: new_date.format('YYYYMMDD'),
-        showDate: new_date.format('YYYY年MM月DD日'),
-        data: []
-      })
-    }
-    lastindex = cur
-
-
-
-
-
-    // if (cur_index < 2) {
-
-    //   new_date = moment(day_datas[0].date, 'YYYYMMDD').add(-1, 'days')
-    //   day_datas.splice(2, 1)
-
-
-    //   day_datas.unshift({
-    //     date: new_date.format('YYYYMMDD'),
-    //     showDate: new_date.add(-1, 'days').format('YYYY年MM月DD日'),
-    //     data: []
-    //   })
-
-    // } else {
-
-    //   new_date = moment(day_datas[2].date, 'YYYYMMDD').add(1, 'days')
-    //   day_datas.splice(0, 1)
-
-
-    //   day_datas.push({
-    //     date: new_date.format('YYYYMMDD'),
-    //     showDate: new_date.format('YYYY年MM月DD日'),
-    //     data: []
-    //   })
-    // }
-/* 设置 weathers 的真值确定是否显示天气，设置 homes 的真值确定是否显示回到今天*/
-    this.setData({ day_datas })
-    this.getOneDay(new_date.format('YYYYMMDD'))
-
-  },
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
 
   },
+
+  /**
+   * 展示日历菜单
+   */
+  show_calendar: function (e) {
+    const hide_calendar = this.data.hide_calendar
+    this.setData({ hide_calendar: !hide_calendar })
+  },
+
+  /**
+   * 选择日期
+   */
+  select_date: function (e) {
+    const { date } = e.detail
+    const _date = moment(date, 'YYYY-MM-DD').format('YYYYMMDD')
+    this.setData({ hide_calendar: true, select_date: moment(date, 'YYYY-MM-DD').format('YYYY年MM月DD日')})
+    this.getOneDay(_date)
+  },
   
-  save: function () {
+  /**
+   * 存储数据
+   * date: 日期
+   * data: 数据内容
+   * isDefault: 是否是默认日期
+   */
+  save: function (date, data, isDefault) {
     try {
-      wx.setStorageSync('list', JSON.stringify(this.data))
+      const all_data = JSON.parse(wx.getStorageSync('list') || '{}')
+      all_data[date] = data
+      if (isDefault) all_data['default_date'] = date
+      wx.setStorageSync('list', JSON.stringify(all_data))
     } catch (ex) {
       console.log('get data to cache error, key=list, ex=', ex)
     }

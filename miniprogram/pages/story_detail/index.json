@@ -1,6 +1,6 @@
 {
   "navigationBarTitleText": "详情",
   "usingComponents": {
-      "navbar": "../../navigationBar/navigation"
+      "navbar": "../../component/navigationBar/navigation"
     }
 }

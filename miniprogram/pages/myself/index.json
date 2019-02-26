@@ -1,7 +1,7 @@
 {
   "navigationBarTitleText": "我的",
     "usingComponents": {
-      "tabbar": "../../tabbarComponent/tabbar",
-      "navbar": "../../navigationBar/navigation"
+      "tabbar": "../../component/tabbarComponent/tabbar",
+      "navbar": "../../component/navigationBar/navigation"
     }
 }

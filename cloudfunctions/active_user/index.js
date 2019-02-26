@@ -35,8 +35,15 @@ exports.main = async (event, context) => {
 
   extend(store_user, user_info)
 
+  console.log(`store_user=`, JSON.stringify(store_user));
+
   //用户已经激活，更新用户信息
   if (store_user.active === 1) {
+
+    //此处需要删除_id， 更新时不可带_id
+    delete store_user._id;
+
+    console.log(`store_user_latest=`, JSON.stringify(store_user));
 
     const update_res = await user_collection.doc(openid).update({ data: store_user })
 

@@ -1,6 +1,6 @@
 {
     "usingComponents": {
-      "navbar": "../../navigationBar/navigation"
+      "navbar": "../../component/navigationBar/navigation"
     },
   "navigationBarTitleText": "我的故事",
   "backgroundColor": "#213C5C"
