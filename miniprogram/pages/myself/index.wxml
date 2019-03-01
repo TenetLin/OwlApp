@@ -26,8 +26,17 @@
   <!-- <view class='item' hover-class='item_hover'><text>我的共鸣</text><image class='right' src='/images/icon_arrow.png'></image></view>
   <view class='item' hover-class='item_hover'><text>我的关注</text><image class='right' src='/images/icon_arrow.png'></image></view>
   <view class='item' hover-class='item_hover'><text>我的粉丝</text><image class='right' src='/images/icon_arrow.png'></image></view> -->
-  <view class='item' hover-class='item_hover'><text>我的消息</text><image class='right' src='/images/icon_arrow.png'></image></view>
+  <!--<view class='item' hover-class='item_hover'><text>我的消息</text><image class='right' src='/images/icon_arrow.png'></image></view>-->
+<view class='item'>
+  <button open-type="contact" class='contacButton'>
+    <view class='contacButtonView' wx:for='{{connectButton}}' wx:key='key'>
+      <text>{{item.text}}</text>
+      <image class='right' src='/images/icon_arrow.png'></image>
+    </view>
+  </button>
+</view>
   <view class='item' bindtap='goAbout' hover-class='item_hover'>关于</view>
+   
    <tabbar tabbar="{{tabbar}}"></tabbar>
 </view>
 </view>

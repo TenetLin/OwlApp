@@ -22,4 +22,18 @@ page { background: #f8f8f8; font-family: PingFangSC-Regular; }
 
 .menu{ background: #fff; margin-top: 10px; font-size: 14px; color: #111;}
 .menu .item{padding: 15px 0;position: relative; border-bottom: 1px solid #e7e7e7; margin-left: 15px;}
+.item .contacButtonView {
+  padding: 15px 0;
+  color: #333;
+}
+.item .contacButton {
+  background-color: #FFF;
+  padding:  0;
+  margin: 0;
+  font-size: inherit;
+}
+.item .contacButton::after {
+  border: #FFF solid;
+}
 .menu .right { width: 16px; height: 16px; float: right; margin-right: 15px; }
+

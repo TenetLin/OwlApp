@@ -11,7 +11,10 @@ Page({
     attentionNum: 0,
     fansNum: 0,
     navigationBarTitle: '我的',
-    navigationBarHeight
+    navigationBarHeight,
+    connectButton: [
+      { className: "", text: "私信给夜飞鹊", bindtap: "" }
+    ]
   },
 
   /**
