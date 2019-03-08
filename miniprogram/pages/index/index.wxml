@@ -1,10 +1,23 @@
-<navbar date="{{select_date}}" weather="{{weathers}}" home="{{homes}}" bindtap='show_calendar'></navbar>
+<navbar date="{{select_date}}" weather="{{nowweather}}" home="{{homes}}" bindtap='show_calendar'></navbar>
 <view class='main' style="{{'top:' + navigationBarHeight}}">
   <view class="calendar-container {{hide_calendar ? 'hide': '' }}">
     <view class="row">
     <date-picker date="{{calendar_select}}" bindonselectdate="select_date" />
     </view>
   </view>
+  <!--<view class="container">
+  <view class="weather yesterday">
+<view class='date'>今天</view>
+<view class='location'>{{basic.location}}/{{basic.parent_city}}</view>
+<view class='tmp'>{{today.tmp_min}}℃~{{today.tmp_max}}℃</view>
+<view class='cond_txt'>{{today.cond_txt_d}}</view>
+</view>
+<view>
+<view class='weather_icon'>
+<image src='{{todyIcon}}'></image>
+</view>
+</view>
+</view>-->
   <view class='content' wx:for='{{data}}' wx:key='_id' wx:for-item='item' wx:for-index='idx' hover-class='item_hover'>
     <view class='header'>
       <image class='owner-icon' src='{{item.userInfo.avatarUrl}}' data-uid='{{item.userInfo.uid}}' bindtap='goUser'/>

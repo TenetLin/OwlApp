@@ -20,12 +20,12 @@ Component({
       value: false
     },
     weather: {
-      type: Boolean,
-      value: false
+      type: String,
+      value: null
     },
     date:{
       type:String,
-      value:null
+      value: null
     }
   },
 
@@ -42,6 +42,6 @@ Component({
       wx.navigateBack({
         delta: -1
       })
-    }
+    }   
   }
 })

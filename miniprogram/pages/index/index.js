@@ -9,12 +9,12 @@ Page({
     tabbar: {},
     navigationBarTitle: '主页',
     navigationBarHeight: (app.statusBarHeight + 44) + 'px',
-    weathers: true,
     swiper_height: '600px',
     homes:false,
     select_date: '',
     calendar_select: '',
     hide_calendar: true,
+    nowweather: 'null',
     data: []
   },
   /**
@@ -61,12 +61,42 @@ Page({
       fail(error) { console.log('get list error', error)}
     })
   },
-
+ getLocation: function () {
+    var that = this;
+    wx.getLocation({
+      type: 'wgs84',
+      success: function (res) {
+        var latitude = res.latitude
+        var longitude = res.longitude
+        that.getWeatherInfo(latitude, longitude);
+      }
+    })
+  },
+  getWeatherInfo: function (latitude, longitude) {
+    var _this = this;
+    var key = 'edf8201a10b04b25a51eb33682cb8204';//你自己的key
+    //需要在微信公众号的设置-开发设置中配置服务器域名
+    var url = 'https://free-api.heweather.com/s6/weather?key=' + key + '&location=' + longitude + ',' + latitude;
+    wx.request({
+      url: url,
+      data: {},
+      method: 'GET',
+      success: function (res) {
+        var now = res.data.HeWeather6[0].now;//当前天气
+        var basic = res.data.HeWeather6[0].basic;
+        //var update = res.data.HeWeather6[0].update.loc;//更新时间
+        _this.setData({
+          /* todyIcon: '../../images/weather/' + daily_forecast_today.cond_code_d + '.png', //在和风天气中下载天气的icon图标，根据cond_code_d显示相应的图标 */
+          nowweather: basic.parent_city + '  ' + now.cond_txt + '  ' + now.tmp + '℃'
+        });
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    this.getLocation();
   },
 
   /**

@@ -11,6 +11,11 @@
     "pages/about/index",
     "pages/user_protocol/user_protocol"
   ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
   "tabBar": {
     "backgroundColor": "#ffffff",
     "color": "#979795",
