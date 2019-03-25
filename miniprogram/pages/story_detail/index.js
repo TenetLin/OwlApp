@@ -1,5 +1,6 @@
 const moment = require('../../common/moment.min.js')
 const navigationBarHeight = (getApp().statusBarHeight + 44) + 'px';
+const { get_userinfo } = require('../../common/common.js')
 Page({
 
   /**
@@ -27,7 +28,11 @@ Page({
   
     //点赞
     _timeout_star: 0,
-    navigationBarHeight 
+    navigationBarHeight,
+    
+    formId:'',
+    access_token:'',
+    openId:''
     
   },
 
@@ -57,7 +62,8 @@ Page({
       success({ errMsg, result }) {
         console.log('detail', errMsg, result)
         that.setData({
-          detail: result
+          detail: result,
+          openId: result.userInfo.openId
         })
         that.save()
       },
@@ -67,9 +73,27 @@ Page({
     })
 
     //拉取第一批用户评论
-    this.getComment(0)
+    this.getComment(0),
+      //第二步  获取access_token
+      wx.request({
+      url: 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx6cce0a9f266c7329&secret=a2818494a5523557e1762affdc3e27ae',
+        method: "GET",
+        success: function (res) {
+          console.log(res);
+          that.setData({
+            access_token: res.data.access_token //获取到的access_token
+          })
+        }
+      })
   },
 
+  form: function (e) {
+   /*this.setData({
+      formId: e.detail.formId
+    })
+    console.log('getformId', e.detail.formId);*/
+    this.submit(e.detail.formId);
+  },
   //获取评论
   getComment (offset, cb) {
 
@@ -82,7 +106,7 @@ Page({
       data: { type: 'get', data: { offset, count: 10, story_id: that.data.id }},
       success ({ errMsg, result}) {
         
-        console.log('get comment list', errMsg, result)
+        console.log('get comment list', errMsg, result, that.data.openId)
         
         result = result || { total: 0, list: [], is_star: false, star_count: 0 }
 
@@ -233,7 +257,7 @@ Page({
   /**
    * 用户点击发布按钮
    */
-  submit: function () {
+  submit: function (e) {
 
     const content = (this.data.user_comment || '').trim()
 
@@ -254,6 +278,8 @@ Page({
 
           wx.showToast({ title: '评论成功' })
 
+          that.notify_after_submit(e);
+
           that.setData({
             user_comment: ''
           })
@@ -270,6 +296,50 @@ Page({
         that.save()
       }
     })
+  },
+  notify_after_submit: function(e) {
+    var that = this; 
+    console.log('user', get_userinfo().nickName);
+    var l = 'https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token=' + that.data.access_token;
+    var d = {
+      touser: that.data.openId, //用户的openid      
+      template_id: '2WTJj7Mhvh7gzV2dQ0nMfxiEhU3fwXOBkMNYODNMPWY',
+      page: '/pages/story_detail/index',
+      form_id: e,
+      data: {           //模板消息要对应 有几个写几个  避免为空模板
+        "keyword1": {
+          "value": that.data.user_comment,
+          "color": "#4a4a4a"
+        },
+        "keyword2": {
+          "value": get_userinfo().nickName,
+          "color": "#9b9b9b",
+        },
+        "keyword3": {
+          "value": that.data.detail.title,
+          "color": "#9b9b9b"
+        },
+        "keyword4": {
+          "value": that.data.date,
+          "color": "#9b9b9b"
+        },
+      },
+      color: '#ccc',
+      emphasis_keyword: 'keyword1.DATA'
+    }
+    wx.request({
+      url: l,
+      data: JSON.stringify(d),
+      
+      method: 'POST',
+      success: function (res) {
+        console.log('notify', res);
+      },
+      fail: function (err) {
+        console.log(err);
+      },
+      
+    });
   },
 
   /**
